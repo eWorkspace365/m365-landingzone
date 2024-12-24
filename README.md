@@ -1,13 +1,19 @@
 **Configuration Profiles** 
 
-![image](https://github.com/user-attachments/assets/150abff3-3ddc-47e8-9ca6-041ec347a9ed)
+For all the **catalog settings** use the json-file to import all the baseline configuration profiles.
 
+![image](https://github.com/user-attachments/assets/2909a342-7ade-4132-8136-8b7a62c0734a)
 
+For **device restrictions** configure the setting manually.
 For more information see: https://learn.microsoft.com/nl-nl/mem/intune/fundamentals/protection-configuration-levels
 
 **Windows**
 
+Go Home > Devices > Windows > Configuration Profiles: 
 
+Create a new profile with type: Device restrictions   
+Name of the profile: bl-win-cfg-restrictions   
+Set all the restrictions according Windows security level 2:
 
 **iOS** 
 
@@ -16,6 +22,10 @@ Go Home > Devices > iOS/iPadOS > Configuration Profiles: 
 Create a new profile with type: Device restrictions   
 Name of the profile: bl-ios-cfg-restrictions   
 Set all the restrictions according iOS security level 2:  
+
+
+
+
 
 | Section | Setting | Value |
 | --- | --- | --- |
