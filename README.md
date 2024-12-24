@@ -1,6 +1,7 @@
 **Configuration Profiles** 
 
-These settings will have to be configured per type (iOS or Android). The choices are described per subscription model with reference to Microsoft recommendations.
+![image](https://github.com/user-attachments/assets/150abff3-3ddc-47e8-9ca6-041ec347a9ed)
+
 
 For more information see: https://learn.microsoft.com/nl-nl/mem/intune/fundamentals/protection-configuration-levels
 
