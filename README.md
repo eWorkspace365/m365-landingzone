@@ -1,21 +1,20 @@
 **Configuration Profiles** 
 
-These settings will have to be configured per type (iOS or Android). The choices are described per subscription model with reference to Microsoft recommendations.  Renewi’s choice is to hold on to Microsoft’s recommended setting, and will be security level 2. 
+These settings will have to be configured per type (iOS or Android). The choices are described per subscription model with reference to Microsoft recommendations.
+
+For more information see: https://learn.microsoft.com/nl-nl/mem/intune/fundamentals/protection-configuration-levels
+
+**Windows**
+
+
 
 **iOS** 
-
-| IOS (Supervised) | IOS (Personal) |
-| --- | --- |
-| iOS/iPadOS supervised device security configurations | iOS/iPadOS personal device security configurations |
-| Security Level 1 | N/A |
-| **Security Level 2** | **Security Level 2** |
-| Security Level 3 | Security Level 3 |
 
 Go Home > Devices > iOS/iPadOS > Configuration Profiles: 
 
 Create a new profile with type: Device restrictions   
-Name of the profile: IOS-DEV-CFG-Device-Restrictions   
-Set all the restrictions according iOS (Personal) security level 2:  
+Name of the profile: bl-ios-cfg-restrictions   
+Set all the restrictions according iOS security level 2:  
 
 | Section | Setting | Value |
 | --- | --- | --- |
