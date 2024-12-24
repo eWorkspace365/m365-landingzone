@@ -1,35 +1,3 @@
-Enrollment Options 
-
-One of the main reasons why we enroll a device in Intune, is that it is commonly required from security perspective to meet the device requirements before accessing company resources. 
-
-| Platform | Category | Task |
-| --- | --- | --- |
-| iOS | Apple Enrollment | Go to Intune Management Portal: Home >  Devices > iOS/iPadOS > iOS/iPadOS Enrollment   Prerequisites: ·                    Create an Apple-ID (example: mgmt.apple@renewi.com)  ·                    Create an Apple Push Certificate. |
-| Android | Android Enrollment | Go to Intune Management Portal: Home >  Devices > Android > Android Enrollment  Select Corporate-Owned devices with work profile. Create a new profile with description: COPE   This will create an enrollment token to use in the instruction manual to enroll new devices. |
-
-**Conditions and Privacy** 
-
-In the Intune Management Portal there are two options to create links to the company terms & conditions and also privacy statement. For legal purposes this should be configured.   
-
-[https://learn.microsoft.com/en-us/mem/intune/protect/privacy-personal-data](https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fmem%2Fintune%2Fprotect%2Fprivacy-personal-data&data=05%7C02%7Ca.bode%40rubicon.nl%7C6ad7823da373474ad66f08dd240315a7%7Ca9f29a72de0040b6b119f20e73ccb9ab%7C0%7C0%7C638706317867756172%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=sY3Hc2Ml1V%2BYSMHLEd2PBbnwjarsvdWWSK6rcjAovck%3D&reserved=0) 
-
-|  |  |  |
-| --- | --- | --- |
-
-| Platform | Category | Task |
-| --- | --- | --- |
-| iOS and Android | Terms and Conditions | Go to Intune Management Portal: Home >  Tenant Administration > Term and Conditions  ·                    Create Terms for the Netherlands ·                    Create Term for Belgium  For the assignment select a custom group for each country. |
-
-**Company Branding** 
-
-In the Intune Management Portal the following  two options are defined and will be visible in the Company Portal App.  
-
-| Platform | Category | Task |
-| --- | --- | --- |
-| iOS and Android | Customization | Go to Intune Management Portal: Home >  Tenant Administration > Customization  ·                    Add support information ·                    Add logo items ·                    Device enrollment: Available, with prompts  There are options to hide or prevent some buttons in the company portal. This is not required. |
-
-  
-
 **Enrollment Types** 
 
 For BYOD enrollment there is a difference between iOS and Android devices. Depending on the  Conditional Access Policies, users need to enroll their personal device into Microsoft Intune. 
