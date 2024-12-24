@@ -1,25 +1,34 @@
-**Configuration Profiles** 
+Go Home > Devices > iOS/iPadOS > Configuration Profiles: 
 
-These settings will have to be configured per type (iOS orAndroid). The choices are described per subscription model with reference toMicrosoft recommendations.  Renewi’s choice is to hold on to Microsoft’srecommended setting, and will be security level 2. 
+Create a new profile with type: Device restrictions   
+Name of the profile: IOS-DEV-CFG-Device-Restrictions   
+Set all the restrictions according iOS (Personal) security level 2:  
 
-**iOS** 
-
-**IOS (Supervised)** 
-
-**IOS (Personal)** 
-
-[iOS/iPadOS](https://eur03.safelinks.protection.outlook.com/?url=https://learn.microsoft.com/en-us/mem/intune/enrollment/ios-ipados-supervised-device-security-configurations&data=05|02|a.bode@rubicon.nl|6ad7823da373474ad66f08dd240315a7|a9f29a72de0040b6b119f20e73ccb9ab|0|0|638706317867780344|Unknown|TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ==|0|||&sdata=z2Io6B7pdDRKMYNo++DmOUWH/GbznULrfUZsQjpSOe4=&reserved=0) [supervised](https://eur03.safelinks.protection.outlook.com/?url=https://learn.microsoft.com/en-us/mem/intune/enrollment/ios-ipados-supervised-device-security-configurations&data=05|02|a.bode@rubicon.nl|6ad7823da373474ad66f08dd240315a7|a9f29a72de0040b6b119f20e73ccb9ab|0|0|638706317867798827|Unknown|TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ==|0|||&sdata=f5rpP5txcxJAgQgJtFOE87iopGxZdqk3qNho2ned2TU=&reserved=0) [device security](https://eur03.safelinks.protection.outlook.com/?url=https://learn.microsoft.com/en-us/mem/intune/enrollment/ios-ipados-supervised-device-security-configurations&data=05|02|a.bode@rubicon.nl|6ad7823da373474ad66f08dd240315a7|a9f29a72de0040b6b119f20e73ccb9ab|0|0|638706317867815832|Unknown|TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ==|0|||&sdata=xwwE7LU9juWEbJmMIv4JN8jX/OaXzQBxl6I9nAlZtpU=&reserved=0) [configurations](https://eur03.safelinks.protection.outlook.com/?url=https://learn.microsoft.com/en-us/mem/intune/enrollment/ios-ipados-supervised-device-security-configurations&data=05|02|a.bode@rubicon.nl|6ad7823da373474ad66f08dd240315a7|a9f29a72de0040b6b119f20e73ccb9ab|0|0|638706317867832010|Unknown|TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ==|0|||&sdata=Ps0tMtnv55K9XCLiMvkZC4wZUqtczLM4jaMFTXzqee0=&reserved=0) [- Microsoft](https://eur03.safelinks.protection.outlook.com/?url=https://learn.microsoft.com/en-us/mem/intune/enrollment/ios-ipados-supervised-device-security-configurations&data=05|02|a.bode@rubicon.nl|6ad7823da373474ad66f08dd240315a7|a9f29a72de0040b6b119f20e73ccb9ab|0|0|638706317867848173|Unknown|TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ==|0|||&sdata=D+Ax1ujuWU1GtVlz+zVbs0ZewWmXpN236Bz7JY+MAVU=&reserved=0) [Intune](https://eur03.safelinks.protection.outlook.com/?url=https://learn.microsoft.com/en-us/mem/intune/enrollment/ios-ipados-supervised-device-security-configurations&data=05|02|a.bode@rubicon.nl|6ad7823da373474ad66f08dd240315a7|a9f29a72de0040b6b119f20e73ccb9ab|0|0|638706317867864394|Unknown|TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ==|0|||&sdata=gea9l+8JD2DARHp8H2CJjqBRUIWTugnlZEQsHcBysJ8=&reserved=0) 
-
-[iOS/iPadOS personal device security](https://eur03.safelinks.protection.outlook.com/?url=https://learn.microsoft.com/en-us/mem/intune/enrollment/ios-ipados-personal-device-security-configurations&data=05|02|a.bode@rubicon.nl|6ad7823da373474ad66f08dd240315a7|a9f29a72de0040b6b119f20e73ccb9ab|0|0|638706317867882141|Unknown|TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ==|0|||&sdata=FeCW2M4B6DMAzbkzjUq9Fkeh+D8lHMi++j1SSAkf4N4=&reserved=0) [configurations](https://eur03.safelinks.protection.outlook.com/?url=https://learn.microsoft.com/en-us/mem/intune/enrollment/ios-ipados-personal-device-security-configurations&data=05|02|a.bode@rubicon.nl|6ad7823da373474ad66f08dd240315a7|a9f29a72de0040b6b119f20e73ccb9ab|0|0|638706317867898504|Unknown|TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ==|0|||&sdata=onov13TnYvzuHHo9H4MzB7gT6B4jot1XKGQLOsVUN0Q=&reserved=0) [- Microsoft](https://eur03.safelinks.protection.outlook.com/?url=https://learn.microsoft.com/en-us/mem/intune/enrollment/ios-ipados-personal-device-security-configurations&data=05|02|a.bode@rubicon.nl|6ad7823da373474ad66f08dd240315a7|a9f29a72de0040b6b119f20e73ccb9ab|0|0|638706317867914948|Unknown|TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ==|0|||&sdata=5FViieG7OIQ2xD495gYrzlVg8xbjFfS+UXIkSgedgx4=&reserved=0) [Intune](https://eur03.safelinks.protection.outlook.com/?url=https://learn.microsoft.com/en-us/mem/intune/enrollment/ios-ipados-personal-device-security-configurations&data=05|02|a.bode@rubicon.nl|6ad7823da373474ad66f08dd240315a7|a9f29a72de0040b6b119f20e73ccb9ab|0|0|638706317867931256|Unknown|TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ==|0|||&sdata=1LtqDLiXyv01J+9Mpe8mNCNcjfqQH+DqEE9R6k8xQRY=&reserved=0) 
-
-Security Level 1 
-
-N/A 
-
-Security Level 2 
-
-Security Level 2 
-
-Security Level 3 
-
-Security Level 3
+| Section | Setting | Value |
+| --- | --- | --- |
+| App Store, Doc Viewing, Gaming | Treat AirDrop as an unmanaged destination | Yes |
+| App Store, Doc Viewing, Gaming | Block viewing corporate documents in unmanaged apps | Yes |
+| App Store, Doc Viewing, Gaming | Block viewing non-corporate documents in corporate apps | Not configured |
+| App Store, Doc Viewing, Gaming | Allow managed apps to write contacts to unmanaged contacts accounts | Yes |
+| App Store, Doc Viewing, Gaming | Allow copy/paste to be affected by managed open-in | Not configured |
+| Built-in Apps | Block Siri while device is locked | Yes |
+| Built-in Apps | Require Safari fraud warnings | Yes |
+| Built-in Apps | Block Siri for dictation | Yes |
+| Built-in Apps | Block Siri for translation | Yes |
+| Cloud and Storage | Force encrypted backup | Yes |
+| Cloud and Storage | Block managed apps from storing data in iCloud | Yes |
+| Cloud Storage | Block backup of enterprise books | Yes |
+| Cloud Storage | Block notes and highlights sync for enterprise books | Yes |
+| Connected Devices | Force Apple Watch wrist detection | Yes |
+| General | Block untrusted TLS certificates | Yes |
+| General | Block trusting new enterprise app authors | Yes |
+| General | Block sending diagnostic and usage data to Apple | Yes |
+| Locked Screen Experience | Block Notification Center access in lock screen | Yes |
+| Locked Screen Experience | Block Today view in lock screen | Yes |
+| Password | Require a password | Yes |
+| Password | Block simple passwords | Yes |
+| Password | Required password type | Numeric |
+| Password | Minimum password length | 6 |
+| Password | Number of sign-in failures before wiping the device | 10 |
+| Password | Maximum minutes after screen lock before password is required | 5 |
+| Password | Maximum minutes of inactivity until screen locks | 5 |
