@@ -1,12 +1,3 @@
-
-
-For public apps Renewi has made the choice to not restrict the App Store for personal devices and for the work-profile to restrict the App Store. 
-
-| Platform | Enrollment Type | App Store Setting |
-| --- | --- | --- |
-| iOS | Default | Open / Closed |
-| Android | Work-Profile | Open / Closed |
-
 **Configuration Profiles** 
 
 These settings will have to be configured per type (iOS or Android). The choices are described per subscription model with reference to Microsoft recommendations.  Renewi’s choice is to hold on to Microsoft’s recommended setting, and will be security level 2. 
@@ -15,9 +6,9 @@ These settings will have to be configured per type (iOS or Android). The choices
 
 | IOS (Supervised) | IOS (Personal) |
 | --- | --- |
-| iOS/iPadOS supervised device security configurations - Microsoft Intune | iOS/iPadOS personal device security configurations - Microsoft Intune |
+| iOS/iPadOS supervised device security configurations | iOS/iPadOS personal device security configurations |
 | Security Level 1 | N/A |
-| Security Level 2 | Security Level 2 |
+| **Security Level 2** | **Security Level 2** |
 | Security Level 3 | Security Level 3 |
 
 Go Home > Devices > iOS/iPadOS > Configuration Profiles: 
