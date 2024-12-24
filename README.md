@@ -56,36 +56,13 @@ Set all the restrictions according iOS security level 2:  
 | Password | Maximum minutes after screen lock before password is required | 5 |
 | Password | Maximum minutes of inactivity until screen locks | 5 |
 
-  
-
-Certificate Profile 
-
-Not used in scope at this moment. 
-
- Wi-Fi Profile 
-
-Renewi’s is to pre-configure WiFi setting for users that uses iOS devices. 
-
-Go Home > Devices > iOS/iPadOS > Configuration Profiles: 
-
-Create profile name: IOS-DEV-CFG-WiFi-“SSID” and configure the settings  
-
 **Android** 
-
-Renewi’s choice is to hold on to Microsoft’s recommended setting, and will be security level 2. 
-
-| Android (Supervised) | Android (Personal) |
-| --- | --- |
-| Android Enterprise fully managed security configurations - Microsoft Intune | Android Enterprise security configurations for personally-owned work profile - Microsoft Intune |
-| Security Level 1 | N/A |
-| Security Level 2 | Security Level 2 |
-| Security Level 3 | Security Level 3 |
 
 Go Home > Devices > Android > Configuration Profiles: 
 
 Create a new profile with type: Device restrictions   
-Name of the profile: AND-DEV-CFG-Device-Restrictions   
-Set all the restrictions according Android (Personal) security level 2:  
+Name of the profile: bl-and-cfg-restrictions    
+Set all the restrictions according Android security level 2:  
 
 | Section | Setting | Value |
 | --- | --- | --- |
@@ -114,17 +91,6 @@ Set all the restrictions according Android (Personal) security level 2:  
 | Work profile settings | Required password type | 6 |
 | Work profile settings | Prevent reuse of previous passwords | 10 |
 
- Certificate Profile 
-
-Not used in scope at this moment. 
-
- Wi-Fi Profile 
-
-Renewi’s is to pre-configure WiFi setting for users that uses Android devices. 
-
-Go Home > Devices > Android > Configuration Profiles: 
-
-Create profile name: AND-DEV-CFG-WiFi-“SSID” and configure the settings  
 
 **Compliance Policies** 
 
@@ -133,8 +99,6 @@ Compliance policies are commonly used in combination with Conditional Access. Th
 To meet with the compliancy policy that has been targeted, of course we enforce these settings first in the configuration policy. It is basically checking if those settings were applied. 
 
 If the device meets the compliance policy, then Intune marks the device as compliant and access to company resources is granted. 
-
-Renewi’s choice is to hold on to Microsoft’s recommended setting, and will be security level 2. 
 
 | iOS |
 | --- |
