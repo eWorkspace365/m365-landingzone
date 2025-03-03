@@ -38,7 +38,11 @@ $Permissions = @{
         @{
             ResourceAppId = "00000003-0000-0000-c000-000000000000"
             ResourceAccess = @(
-                @{
+		@{
+                    id = "df021288-bdef-4463-88db-98f22de89214"  # User.Read.All
+                    type = "Role"
+                },
+		@{
                     id = "7ab1d382-f21e-4acd-a863-ba3e13f7da61"  # Directory.ReadWrite.All
                     type = "Role"
                 },
@@ -54,8 +58,24 @@ $Permissions = @{
                     id = "498476ce-e0fe-48b0-b801-37ba7e2685c6"  # Organization.Read.All
                     type = "Role"
                 },
+		@{
+                    id = "dc149144-f292-421e-b185-5953f2e98d7f"  # AppCatalog.ReadWrite.All
+                    type = "Role"
+                },
+		@{
+                    id = "6a118a39-1227-45d4-af0c-ea7b40d210bc"  # Channel.Delete.All
+                    type = "Role"
+                },
+		@{
+                    id = "243cded2-bd16-4fd6-a953-ff8177894c3d"  # ChannelSettings.ReadWrite.All
+                    type = "Role"
+                },
+		@{
+                    id = "35930dcf-aceb-4bd1-b99a-8ffed403c974"  # ChannelMember.ReadWrite.All
+                    type = "Role"
+                },
                 @{
-                    id = "242607bd-1d2c-432c-82eb-bdb27baa23ab"  # TeamSettings.Read.All
+                    id = "bdd80a03-d9bc-451d-b7c4-ce7c63fe3c8f"  # TeamSettings.ReadWrite.All
                     type = "Role"
                 }
             )

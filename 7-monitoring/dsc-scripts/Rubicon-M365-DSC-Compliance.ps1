@@ -16,7 +16,7 @@ $choice = Read-Host "Enter 'new' to create a new application or 'update' to upda
 
 if ($choice -eq 'new') {
     # Create AAD Application
-    $AppName =  "Rubicon-M365-DSC-EntraID"
+    $AppName =  "Rubicon-M365-DSC-Compliance"
     $App = New-MgApplication -DisplayName $AppName 
     $APPObjectID = $App.Id
     Write-Host "Created new application with ID: $APPObjectID"
@@ -38,40 +38,41 @@ $Permissions = @{
         @{
             ResourceAppId = "00000003-0000-0000-c000-000000000000"
             ResourceAccess = @(
- 		@{
-                    id = "b0afded3-3588-46d8-8b3d-9842eff778da"  # AuditLog.Read.All
+		@{
+                    id = "9241abd9-d0e6-425a-bd4f-47ba86e767a4"  # DeviceManagementConfiguration.ReadWrite.All
                     type = "Role"
                 },
 		@{
-                    id = "90db2b9a-d928-4d33-a4dd-8442ae3d41e4"  IdentityProvider.ReadWrite.All
-                    type = "Role"
-                },
-                @{
                     id = "7ab1d382-f21e-4acd-a863-ba3e13f7da61"  # Directory.Read.All
                     type = "Role"
                 },
                 @{
-                    id = "c74fd47d-ed3c-45c3-9a9e-b8676de685d2"  # EntitlementManagement.Read.All
+                    id = "b2620db1-3bf7-4c5b-9cb9-576d29eac736"  # eDiscovery.ReadWrite.All
+                    type = "Role"
+                },
+                @{
+                    id = "19da66cb-0fb0-4390-b071-ebc76a349482"  # InformationProtectionPolicy.Read.All
                     type = "Role"
                 },
                 @{
                     id = "498476ce-e0fe-48b0-b801-37ba7e2685c6"  # Organization.Read.All
                     type = "Role"
                 },
-                @{
-                    id = "246dd0d5-5bd0-4def-940b-0421030a5b68"  # Policy.Read.All
+		@{
+                    id = "01c0a623-fc9b-48e9-b794-0756f8e8f067"  # Policy.ReadWrite.ConditionalAccess
                     type = "Role"
                 },
-                @{
-                    id = "483bed4a-2ad3-4361-a73b-c83ccdbdc53c"  # RoleManagement.Read.Directory
+		@{
+                    id = "d903a879-88e0-4c09-b0c9-82f6a1333f84"  # SecurityEvents.ReadWrite.All
                     type = "Role"
-                },
+                }
+            )
+        },
+        @{
+            resourceAppId = "00000002-0000-0ff1-ce00-000000000000"  # Office 365 Exchange Online
+            resourceAccess = @(
                 @{
-                    id = "df021288-bdef-4463-88db-98f22de89214"  # User.Read.All
-                    type = "Role"
-                },
-                @{
-                    id = "c9090d00-6101-42f0-a729-c41074260d47"  # Agreement.ReadWrite.All
+                    id = "dc50a0fb-09a3-484d-be87-e023b12c6440"  # Exchange.ManageAsApp
                     type = "Role"
                 }
             )
