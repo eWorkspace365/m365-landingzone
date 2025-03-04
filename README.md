@@ -44,13 +44,13 @@ https://nmmhelp.getnerdio.com/hc/en-us/articles/30697922879501-Attack-Surface-Re
 
 
 **EntraID**
-https://borncity.com/win/2024/05/13/azure-entra-id-microsoft-confirms-issues-with-single-sign-on-sso/
-https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks
+- https://borncity.com/win/2024/05/13/azure-entra-id-microsoft-confirms-issues-with-single-sign-on-sso/
+- https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks
 
 
 **Conditional Access**
-https://www.cswrld.com/2024/02/recommended-conditional-access-policies-in-microsoft-entra-id/
-https://learn.microsoft.com/nl-nl/graph/api/conditionalaccesspolicy-delete?view=graph-rest-1.0&tabs=powershell
+- https://www.cswrld.com/2024/02/recommended-conditional-access-policies-in-microsoft-entra-id/
+- https://learn.microsoft.com/nl-nl/graph/api/conditionalaccesspolicy-delete?view=graph-rest-1.0&tabs=powershell
 
 
 **Intune**
