@@ -20,18 +20,18 @@ https://github.com/Barbarur/NovaPointPowerShell/blob/main/Solutions/Report/Prese
 
 
 **Defender for Endpoint**
-Add-MpPreference -AttackSurfaceReductionRules_Ids d1e49aac-8f56-4280-b9ba-993a6d77406c -AttackSurfaceReductionRules_Actions Disabled
+`Add-MpPreference -AttackSurfaceReductionRules_Ids d1e49aac-8f56-4280-b9ba-993a6d77406c -AttackSurfaceReductionRules_Actions Disabled`
 
-Add-MpPreference -AttackSurfaceReductionOnlyExclusions "C:\Windows\Microsoft.NET\Framework64\v4.0.30319"
-Add-MpPreference -AttackSurfaceReductionRules_Ids d1e49aac-8f56-4280-b9ba-993a6d77406c -AttackSurfaceReductionRules_Actions Disabled
+`Add-MpPreference -AttackSurfaceReductionOnlyExclusions "C:\Windows\Microsoft.NET\Framework64\v4.0.30319"`
+`Add-MpPreference -AttackSurfaceReductionRules_Ids d1e49aac-8f56-4280-b9ba-993a6d77406c -AttackSurfaceReductionRules_Actions Disabled`
 
 `get-mppreference | select-object -expandproperty AttackSurfaceReductionRules_Actions`
-get-mppreference | select-object -expandproperty AttackSurfaceReductionRules_Ids
-get-mppreference | select-object -expandproperty ExclusionExtension
-get-mppreference | select-object -expandproperty ExclusionIpAddress
-get-mppreference | select-object -expandproperty ExclusionPath
-get-mppreference | select-object -expandproperty ExclusionProcess
-get-mppreference | select-object -expandproperty AttackSurfaceReductionOnlyExclusions
+`get-mppreference | select-object -expandproperty AttackSurfaceReductionRules_Ids`
+`get-mppreference | select-object -expandproperty ExclusionExtension`
+`get-mppreference | select-object -expandproperty ExclusionIpAddress`
+`get-mppreference | select-object -expandproperty ExclusionPath`
+`get-mppreference | select-object -expandproperty ExclusionProcess`
+`get-mppreference | select-object -expandproperty AttackSurfaceReductionOnlyExclusions`
 
 
 - https://www.techcrafters.com/portal/en/kb/articles/powershell-tutorial-configuring-asr-to-block-processes-from-psexec-and-wmi#Testing_Specific_ASR_Rules
