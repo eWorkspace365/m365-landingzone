@@ -25,7 +25,7 @@ Add-MpPreference -AttackSurfaceReductionRules_Ids d1e49aac-8f56-4280-b9ba-993a6d
 Add-MpPreference -AttackSurfaceReductionOnlyExclusions "C:\Windows\Microsoft.NET\Framework64\v4.0.30319"
 Add-MpPreference -AttackSurfaceReductionRules_Ids d1e49aac-8f56-4280-b9ba-993a6d77406c -AttackSurfaceReductionRules_Actions Disabled
 
-get-mppreference | select-object -expandproperty AttackSurfaceReductionRules_Actions
+`get-mppreference | select-object -expandproperty AttackSurfaceReductionRules_Actions`
 get-mppreference | select-object -expandproperty AttackSurfaceReductionRules_Ids
 get-mppreference | select-object -expandproperty ExclusionExtension
 get-mppreference | select-object -expandproperty ExclusionIpAddress
