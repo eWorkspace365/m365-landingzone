@@ -74,3 +74,12 @@ foreach ($page in $pages) {Remove-PnPListItem -List "SitePages" -Identity $page.
 - https://public.cyber.mil/stigs/gpo/
 - https://www.coreview.com/product-tour
 - https://blueprint.asd.gov.au/
+
+**General**
+- https://www.syxsense.com/syxsense-securityarticles/cis_benchmarks/cis_benchmarks.htm
+- https://blog.expta.com/2021/10/how-to-install-outlook-add-in-to-view.html
+- https://learn.microsoft.com/en-us/defender-office-365/quarantine-admin-manage-messages-files
+- https://www.microsoft.com/en-us/servicesagreementpening-read-on/
+- https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365#eop-outbound-spam-policy-settings
+- https://learn.microsoft.com/en-us/graph/permissions-reference
+- https://blueprint.asd.gov.au/configuration/intune/devices/configuration-profiles/ios-microsoft-enterprise-sso-plugin
