@@ -1,18 +1,18 @@
 **SharePoint Online**
 
 # Connect with Powershell
-Connect-PnPOnline -Url "https://eworkspace365.sharepoint.com/" -UseWebLogin
-Connect-PnPOnline -url "https://eworkspace365.sharepoint.com/sites/public" -ClientId "dd32vf5cb-5604-34c5-8csd-cerf5bg47k809" -Thumbprint "F5HDF625E7F409FE706999D1380E3340A3E8" -Tenant "e345gn-54e3-8934-2349-cb0e02226b58"
+- `Connect-PnPOnline -Url "https://eworkspace365.sharepoint.com/" -UseWebLogin`
+- `Connect-PnPOnline -url "https://eworkspace365.sharepoint.com/sites/public" -ClientId "dd32vf5cb-5604-34c5-8csd-cerf5bg47k809" -Thumbprint "F5HDF625E7F409FE706999D1380E3340A3E8" -Tenant "e345gn-54e3-8934-2349-cb0e02226b58"`
 
 # Remove All Pages from Page Library
-$pages = Get-PnPListItem -List "SitePages"  
-foreach ($page in $pages) {Remove-PnPListItem -List "SitePages" -Identity $page.Id -Force}   
+`$pages = Get-PnPListItem -List "SitePages"  
+foreach ($page in $pages) {Remove-PnPListItem -List "SitePages" -Identity $page.Id -Force}`
 
 # Assign Site Template
-Invoke-PnPSiteTemplate -Path "C:\Users\Public\Downloads\BrandAtContoso.pnp" -Parameters @{"SiteTitle"="Information Portal";"SiteUrl"="/sites/public"}
+`Invoke-PnPSiteTemplate -Path "C:\Users\Public\Downloads\BrandAtContoso.pnp" -Parameters @{"SiteTitle"="Information Portal";"SiteUrl"="/sites/public"}`
 
 # Rename html file to aspx file
-Get-ChildItem *.html | Rename-Item -NewName { $_.Name -replace '\.html','.aspx' }
+`Get-ChildItem *.html | Rename-Item -NewName { $_.Name -replace '\.html','.aspx' }`
 
 # Reference URLS
 https://support.microsoft.com/nl-nl/office/metagegevensnavigatie-voor-een-lijst-of-bibliotheek-instellen-c222a75d-8b18-44e2-9ed8-7ee4e0d23cfc
