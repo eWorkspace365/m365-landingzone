@@ -15,9 +15,16 @@ foreach ($page in $pages) {Remove-PnPListItem -List "SitePages" -Identity $page.
 `Get-ChildItem *.html | Rename-Item -NewName { $_.Name -replace '\.html','.aspx' }`
 
 # Reference URLS
-https://support.microsoft.com/nl-nl/office/metagegevensnavigatie-voor-een-lijst-of-bibliotheek-instellen-c222a75d-8b18-44e2-9ed8-7ee4e0d23cfc
-https://github.com/Barbarur/NovaPointPowerShell/blob/main/Solutions/Report/Preservation%20Hold%20Library%20in%20each%20Site.md
-
+- https://support.microsoft.com/nl-nl/office/metagegevensnavigatie-voor-een-lijst-of-bibliotheek-instellen-c222a75d-8b18-44e2-9ed8-7ee4e0d23cfc
+- https://github.com/Barbarur/NovaPointPowerShell/blob/main/Solutions/Report/Preservation%20Hold%20Library%20in%20each%20Site.md
+- https://support.microsoft.com/en-us/office/view-usage-data-for-sharepoint-pages-and-news
+- https://pkbullock.com/blog/2020/can-i-convert-a-publishing-page-to-the-modern-experience
+- https://learn.microsoft.com/en-us/sharepoint/dev/transform/modernize-userinterface-site-pages
+- https://adoption.microsoft.com/en-us/sharepoint-look-book/
+- https://www.sitedesigner.io/#/
+- https://www.sharepointdiary.com/2022/06/create-site-template-in-sharepoint-online.html
+- https://sharepoint.handsontek.net/2022/02/07/host-static-html-sites-modern-sharepoint-site-collections/
+- https://www.sharepointdiary.com/2012/10/bulk-upload-files-to-sharepoint-using-powershell.html
 
 **Defender for Endpoint**
 - `Add-MpPreference -AttackSurfaceReductionRules_Ids d1e49aac-8f56-4280-b9ba-993a6d77406c -AttackSurfaceReductionRules_Actions Disabled`
