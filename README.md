@@ -34,12 +34,12 @@ get-mppreference | select-object -expandproperty ExclusionProcess
 get-mppreference | select-object -expandproperty AttackSurfaceReductionOnlyExclusions
 
 
-https://www.techcrafters.com/portal/en/kb/articles/powershell-tutorial-configuring-asr-to-block-processes-from-psexec-and-wmi#Testing_Specific_ASR_Rules
-https://gist.github.com/api0cradle/1fdf6bd7fa1a03cd0423feca1ee692eb
-https://www.techcrafters.com/portal/en/kb/articles/powershell-tutorial-configuring-asr-to-block-processes-from-psexec-and-wmi#Setting_Rule_Actions
-https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-reference
-https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-deployment-test
-https://nmmhelp.getnerdio.com/hc/en-us/articles/30697922879501-Attack-Surface-Reduction-AVD-Exclusions
+- https://www.techcrafters.com/portal/en/kb/articles/powershell-tutorial-configuring-asr-to-block-processes-from-psexec-and-wmi#Testing_Specific_ASR_Rules
+- https://gist.github.com/api0cradle/1fdf6bd7fa1a03cd0423feca1ee692eb
+- https://www.techcrafters.com/portal/en/kb/articles/powershell-tutorial-configuring-asr-to-block-processes-from-psexec-and-wmi#Setting_Rule_Actions
+- https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-reference
+- https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-deployment-test
+- https://nmmhelp.getnerdio.com/hc/en-us/articles/30697922879501-Attack-Surface-Reduction-AVD-Exclusions
 
 
 
@@ -54,16 +54,16 @@ https://nmmhelp.getnerdio.com/hc/en-us/articles/30697922879501-Attack-Surface-Re
 
 
 **Intune**
-https://www-intuneirl-com.cdn.ampproject.org/c/s/www.intuneirl.com/implementing-platform-sso-for-macos-a-deep-dive-into-configuration-troubleshooting/amp/
-https://www.linkedin.com/pulse/mobile-security-microsoft-intune-configuration-frameworks-peter-chen-kgarc
-https://github.com/microsoft/Intune-Config-Frameworks/tree/master/AndroidEnterprise/FullyManaged
-https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-passwordless-security-key-windows#enable-with-microsoft-intune
-https://cloud.hacktricks.xyz/pentesting-cloud/azure-security/az-device-registration
-https://jonconwayuk.wordpress.com/2023/03/25/intune-force-microsoft-edge-update-to-latest-version-during-windows-autopilot
+- https://www-intuneirl-com.cdn.ampproject.org/c/s/www.intuneirl.com/implementing-platform-sso-for-macos-a-deep-dive-into-configuration-troubleshooting/amp/
+- https://www.linkedin.com/pulse/mobile-security-microsoft-intune-configuration-frameworks-peter-chen-kgarc
+- https://github.com/microsoft/Intune-Config-Frameworks/tree/master/AndroidEnterprise/FullyManaged
+- https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-passwordless-security-key-windows#enable-with-microsoft-intune
+- https://cloud.hacktricks.xyz/pentesting-cloud/azure-security/az-device-registration
+- https://jonconwayuk.wordpress.com/2023/03/25/intune-force-microsoft-edge-update-to-latest-version-during-windows-autopilot
 
 **Security Hardening**
-https://github.com/HotCakeX/Harden-Windows-Security/blob/main/Intune%20Files/Hardening%20Policies/Windows%20Update.json
-https://github.com/TheTechBeast8/HardeningAudit/tree/main/CIS%20Win11%20v3.0/Deployment%20Scripts
-https://public.cyber.mil/stigs/gpo/
-https://www.coreview.com/product-tour
-https://blueprint.asd.gov.au/
+- https://github.com/HotCakeX/Harden-Windows-Security/blob/main/Intune%20Files/Hardening%20Policies/Windows%20Update.json
+- https://github.com/TheTechBeast8/HardeningAudit/tree/main/CIS%20Win11%20v3.0/Deployment%20Scripts
+- https://public.cyber.mil/stigs/gpo/
+- https://www.coreview.com/product-tour
+- https://blueprint.asd.gov.au/
