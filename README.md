@@ -26,6 +26,11 @@ foreach ($page in $pages) {Remove-PnPListItem -List "SitePages" -Identity $page.
 - https://sharepoint.handsontek.net/2022/02/07/host-static-html-sites-modern-sharepoint-site-collections/
 - https://www.sharepointdiary.com/2012/10/bulk-upload-files-to-sharepoint-using-powershell.html
 
+**Microsoft Teams (versions)**
+- https://www.microsoft.com/nl-nl/microsoft-teams/compare-microsoft-teams-business-options?market=nl
+- https://www.microsoft.com/nl-nl/microsoft-teams/premium?market=nl#Pricing
+- https://www.microsoft.com/nl-nl/microsoft-teams/enterprise/teams-enterprise?activetab=pivot%3Aoverzichttab&market=nl
+
 **Defender for Endpoint**
 - `Add-MpPreference -AttackSurfaceReductionRules_Ids d1e49aac-8f56-4280-b9ba-993a6d77406c -AttackSurfaceReductionRules_Actions Disabled`
 
