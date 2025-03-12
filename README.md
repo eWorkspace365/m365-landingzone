@@ -88,3 +88,28 @@ foreach ($page in $pages) {Remove-PnPListItem -List "SitePages" -Identity $page.
 - https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365#eop-outbound-spam-policy-settings
 - https://learn.microsoft.com/en-us/graph/permissions-reference
 - https://blueprint.asd.gov.au/configuration/intune/devices/configuration-profiles/ios-microsoft-enterprise-sso-plugin
+
+**Azure Virtual Desktop (AVD) with Intune**
+Azure Virtual Desktop (AVD) multi-session environments have certain limitations when it comes to Intune management. Below are the key Intune features and profiles that are not supported in AVD multi-session scenarios:
+
+1. Device Configuration Profiles
+Device-based profiles: These profiles are designed for single-user devices and may not work as expected in a multi-session environment.
+Endpoint Protection: Settings like BitLocker encryption and other device security configurations are not supported in multi-session AVD.
+
+2. User-Specific Settings
+User-based settings, such as per-user certificates or email profiles, may not work as expected in a multi-session environment.
+
+3. Compliance Policies
+Compliance policies that rely on device-specific attributes (e.g., encryption, password policies) are not fully supported because multi-session AVD is not treated as a single-user device.
+
+4. App Deployment
+Win32 Apps: While Win32 apps can be deployed, they may not function as expected in a multi-session environment due to user-specific configurations.
+Line-of-Business (LOB) Apps: Some LOB apps may face challenges in multi-session scenarios, especially if they require per-user installation or configuration.
+
+5. Windows Update for Business
+Multi-session AVD does not support Windows Update for Business policies managed through Intune. Updates for AVD multi-session images are typically managed through other methods, such as WSUS or Configuration Manager.
+
+6. Endpoint Analytics
+Some features of Endpoint Analytics, such as device performance monitoring, are not fully supported in multi-session environments.
+
+
