@@ -43,7 +43,7 @@ $Permissions = @{
                     type = "Role"
                 },
 		@{
-                    id = "90db2b9a-d928-4d33-a4dd-8442ae3d41e4"  IdentityProvider.ReadWrite.All
+                    id = "90db2b9a-d928-4d33-a4dd-8442ae3d41e4"  # IdentityProvider.ReadWrite.All
                     type = "Role"
                 },
                 @{
