@@ -67,7 +67,7 @@ $Permissions = @{
                     type = "Role"
                 },
                 @{
-                    id = "df021288-bdef-4463-88db-98f22de89214"  # User.Read.All
+                    id = "741f803b-c850-494e-b5df-cde7c675a1ca"  # User.ReadWrite.All
                     type = "Role"
                 },
                 @{
