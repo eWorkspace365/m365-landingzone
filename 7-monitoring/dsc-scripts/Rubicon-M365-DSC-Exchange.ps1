@@ -46,6 +46,11 @@ $Permissions = @{
                     id = "810c84a8-4a9e-49e6-bf7d-12d183f40d01"  # Mail.Read
                     type = "Role"
                 },
+		@{
+                    id = "b633e1c5-b582-4048-a93e-9f11b44c7e96"  # Mail.Send
+                    type = "Role"
+                },
+
                 @{
                     id = "9e3f62cf-ca93-4989-b6ce-bf83c28f9fe8"  # RoleManagement.ReadWrite.Directory
                     type = "Role"
