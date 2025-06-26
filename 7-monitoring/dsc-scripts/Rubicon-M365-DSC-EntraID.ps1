@@ -66,6 +66,10 @@ $Permissions = @{
                     id = "483bed4a-2ad3-4361-a73b-c83ccdbdc53c"  # RoleManagement.Read.Directory
                     type = "Role"
                 },
+				 @{
+                    id = "1138cb37-bd11-4084-a2b7-9f71582aeddb"  # Device.ReadWrite.All
+                    type = "Role"							
+                },
                 @{
                     id = "741f803b-c850-494e-b5df-cde7c675a1ca"  # User.ReadWrite.All
                     type = "Role"
