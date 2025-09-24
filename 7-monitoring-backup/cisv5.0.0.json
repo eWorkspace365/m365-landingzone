@@ -1,0 +1,1757 @@
+[
+  {
+    "summary": "5.2.3.6 (L1) Ensure system-preferred multifactor authentication is enabled (Manual)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "5.2.3.6",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.2.1 (L1) Ensure emergency access account activity is monitored (Manual)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "2.2.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.3.5 (L1) Ensure approval is required for Privileged Role Administrator activation (Manual)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "5.3.5",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.2.12 (L1) Ensure the device code sign-in flow is blocked (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "5.2.2.12",
+    "Profile": "L1"
+  },
+  {
+    "summary": "4.2 (L2) Ensure device enrollment for personally owned devices is blocked by default (Manual)",
+    "category": "4. Microsoft Intune Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "4.2",
+    "Profile": "L2"
+  },
+  {
+    "summary": "4.1 (L2) Ensure devices without a compliance policy are marked 'not compliant' (Automated)",
+    "category": "4. Microsoft Intune Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "4.1",
+    "Profile": "L2"
+  },
+  {
+    "summary": "9.1.11 (L1) Ensure Service Principals cannot create and use profiles (Manual)",
+    "category": "9. Microsoft Fabric",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "9.1.11",
+    "Profile": "L1"
+  },
+  {
+    "summary": "9.1.10 (L1) Ensure access to APIs by Service Principals is restricted (Manual)",
+    "category": "9. Microsoft Fabric",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "9.1.10",
+    "Profile": "L1"
+  },
+  {
+    "summary": "9.1.9 (L1) Ensure 'Block ResourceKey Authentication' is 'Enabled' (Manual)",
+    "category": "9. Microsoft Fabric",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Manage resource key authentication"
+    ],
+    "status": "Open",
+    "Control": "9.1.9",
+    "Profile": "L1"
+  },
+  {
+    "summary": "9.1.8 (L1) Ensure enabling of external data sharing is restricted (Manual)",
+    "category": "9. Microsoft Fabric",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Restrict external data share"
+    ],
+    "status": "Open",
+    "Control": "9.1.8",
+    "Profile": "L1"
+  },
+  {
+    "summary": "9.1.7 (L1) Ensure shareable links are restricted (Manual)",
+    "category": "9. Microsoft Fabric",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Monitor the shared links"
+    ],
+    "status": "Open",
+    "Control": "9.1.7",
+    "Profile": "L1"
+  },
+  {
+    "summary": "9.1.6 (L1) Ensure 'Allow users to apply sensitivity labels for content' is 'Enabled' (Manual)",
+    "category": "9. Microsoft Fabric",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Ensure sensitive label are applied to content"
+    ],
+    "status": "Open",
+    "Control": "9.1.6",
+    "Profile": "L1"
+  },
+  {
+    "summary": "9.1.5 (L2) Ensure 'Interact with and share R and Python' visuals is 'Disabled' (Manual)",
+    "category": "9. Microsoft Fabric",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Ensure script-based visual interaction is disabled"
+    ],
+    "status": "Open",
+    "Control": "9.1.5",
+    "Profile": "L2"
+  },
+  {
+    "summary": "9.1.4 (L1) Ensure 'Publish to web' is restricted (Manual)",
+    "category": "9. Microsoft Fabric",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Restrict publishing data on web"
+    ],
+    "status": "Open",
+    "Control": "9.1.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "9.1.3 (L1) Ensure guest access to content is restricted (Manual)",
+    "category": "9. Microsoft Fabric",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Manage guest user permissions"
+    ],
+    "status": "Open",
+    "Control": "9.1.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "9.1.2 (L1) Ensure external user invitations are restricted (Manual)",
+    "category": "9. Microsoft Fabric",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Manage external user invitation settings"
+    ],
+    "status": "Open",
+    "Control": "9.1.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "9.1.1 (L1) Ensure guest user access is restricted (Manual)",
+    "category": "9. Microsoft Fabric",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Regulate access permissions for guest users"
+    ],
+    "status": "Open",
+    "Control": "9.1.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "8.6.1 (L1) Ensure users can report security concerns in Teams (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Enable user reporting of security concerns in team collaboration platforms"
+    ],
+    "status": "Open",
+    "Control": "8.6.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "8.5.9 (L2) Ensure meeting recording is off by default (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "8.5.9",
+    "Profile": "L2"
+  },
+  {
+    "summary": "8.5.8 (L2) Ensure external meeting chat is off (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "8.5.8",
+    "Profile": "L2"
+  },
+  {
+    "summary": "8.5.7 (L1) Ensure external participants can't give or request control (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Limit an external participant to give or request control in a meeting"
+    ],
+    "status": "Open",
+    "Control": "8.5.7",
+    "Profile": "L1"
+  },
+  {
+    "summary": "8.5.6 (L2) Ensure only organizers and co-organizers can present (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Prevent the sharing of sensitive information within business communication platforms"
+    ],
+    "status": "Open",
+    "Control": "8.5.6",
+    "Profile": "L2"
+  },
+  {
+    "summary": "8.5.5 (L2) Ensure meeting chat does not allow anonymous users (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "8.5.5",
+    "Profile": "L2"
+  },
+  {
+    "summary": "8.5.4 (L1) Ensure users dialing in can't bypass the lobby (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Configure meetings to prevent users from bypassing lobbies for meetings"
+    ],
+    "status": "Open",
+    "Control": "8.5.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "8.5.3 (L1) Ensure only people in my org can bypass the lobby (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Configure meetings to prevent users from bypassing lobbies for meetings"
+    ],
+    "status": "Open",
+    "Control": "8.5.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "8.5.2 (L1) Ensure anonymous users and dial-in callers can't start a meeting (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Restrict Anonymous user joins during meetings",
+      "Configure access to initiate meeting recordings in virtual meetings",
+      "Prevent anonymous users from starting meetings"
+    ],
+    "status": "Open",
+    "Control": "8.5.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "8.5.1 (L2) Ensure anonymous users can't join a meeting (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Restrict Anonymous user joins during meetings"
+    ],
+    "status": "Open",
+    "Control": "8.5.1",
+    "Profile": "L2"
+  },
+  {
+    "summary": "8.4.1 (L1) Ensure app permission policies are configured (Manual)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Configure app permission policies in team collaboration platforms"
+    ],
+    "status": "Open",
+    "Control": "8.4.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "8.2.4 (L1) Ensure communication with Skype users is disabled (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "8.2.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "8.2.3 (L1) Ensure external Teams users cannot initiate conversations (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "8.2.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "8.2.2 (L1) Ensure communication with unmanaged Teams users is disabled (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "8.2.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "8.2.1 (L2) Ensure external domains are restricted in the Teams admin center (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "8.2.1",
+    "Profile": "L2"
+  },
+  {
+    "summary": "8.1.2 (L1) Ensure users can't send emails to a channel email address (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Disable email in team collaboration platform",
+      "Manage channel meetings"
+    ],
+    "status": "Open",
+    "Control": "8.1.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "8.1.1 (L2) Ensure external file sharing in Teams is enabled for only approved cloud storage services (Automated)",
+    "category": "8. Microsoft Teams Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Restrict external file sharing to only approved cloud storage services"
+    ],
+    "status": "Open",
+    "Control": "8.1.1",
+    "Profile": "L2"
+  },
+  {
+    "summary": "7.3.4 (L1) Ensure custom script execution is restricted on site collections (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Restrict custom script execution on personal and self-service sites"
+    ],
+    "status": "Open",
+    "Control": "7.3.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "7.3.3 (L1) Ensure custom script execution is restricted on personal sites (Manual)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Restrict custom script execution on personal and self-service sites"
+    ],
+    "status": "Open",
+    "Control": "7.3.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "7.3.2 (L2) Ensure OneDrive sync is restricted for unmanaged devices (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Allow sync only on managed devices"
+    ],
+    "status": "Open",
+    "Control": "7.3.2",
+    "Profile": "L2"
+  },
+  {
+    "summary": "7.3.1 (L2) Ensure Office 365 SharePoint infected files are disallowed for download (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "7.3.1",
+    "Profile": "L2"
+  },
+  {
+    "summary": "7.2.11 (L1) Ensure the SharePoint default sharing link permission is set (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "7.2.11",
+    "Profile": "L1"
+  },
+  {
+    "summary": "7.2.10 (L1) Ensure reauthentication with verification code is restricted (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Restrict reauthentication period for verification code"
+    ],
+    "status": "Open",
+    "Control": "7.2.10",
+    "Profile": "L1"
+  },
+  {
+    "summary": "7.2.9 (L1) Ensure guest access to a site or OneDrive will expire automatically (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Remove a guest user",
+      "Set automatic expiration for guest access for internal or document management sites"
+    ],
+    "status": "Open",
+    "Control": "7.2.9",
+    "Profile": "L1"
+  },
+  {
+    "summary": "7.2.8 (L2) Ensure external sharing is restricted by security group (Manual)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Restrict guest users from sharing information"
+    ],
+    "status": "Open",
+    "Control": "7.2.8",
+    "Profile": "L2"
+  },
+  {
+    "summary": "7.2.7 (L1) Ensure link sharing is restricted in SharePoint and OneDrive (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Restrict link sharing in document management and collaboration sites"
+    ],
+    "status": "Open",
+    "Control": "7.2.7",
+    "Profile": "L1"
+  },
+  {
+    "summary": "7.2.6 (L2) Ensure SharePoint external sharing is managed through domain whitelist/blacklists (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Limit document sharing to external domains"
+    ],
+    "status": "Open",
+    "Control": "7.2.6",
+    "Profile": "L2"
+  },
+  {
+    "summary": "7.2.5 (L2) Ensure that SharePoint guest users cannot share items they don't own (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Restrict guest users from sharing information"
+    ],
+    "status": "Open",
+    "Control": "7.2.5",
+    "Profile": "L2"
+  },
+  {
+    "summary": "7.2.4 (L2) Ensure OneDrive content sharing is restricted (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enable information barriers"
+    ],
+    "status": "Open",
+    "Control": "7.2.4",
+    "Profile": "L2"
+  },
+  {
+    "summary": "7.2.3 (L1) Ensure external content sharing is restricted (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Limit document sharing to external domains",
+      "Restrict external content sharing"
+    ],
+    "status": "Open",
+    "Control": "7.2.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "7.2.2 (L1) Ensure SharePoint and OneDrive integration with Azure AD B2B is enabled (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Allow invited guest-users to access specific applications",
+      "Maintain secure collaborative work across organizations",
+      "Restrict guest/external user access permissions"
+    ],
+    "status": "Open",
+    "Control": "7.2.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "7.2.1 (L1) Ensure modern authentication for SharePoint applications is required (Automated)",
+    "category": "7. SharePoint Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Manage authentication methods",
+      "Block applications that don't use modern authentication",
+      "Ensure modern authentication method are enabled"
+    ],
+    "status": "Open",
+    "Control": "7.2.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "6.5.4 (L1) Ensure SMTP AUTH is disabled (Automated)",
+    "category": "6. Exchange Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "6.5.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "6.5.3 (L2) Ensure additional storage providers are restricted in Outlook on the web (Automated)",
+    "category": "6. Exchange Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Limit use of additional storage providers"
+    ],
+    "status": "Open",
+    "Control": "6.5.3",
+    "Profile": "L2"
+  },
+  {
+    "summary": "6.5.2 (L1) Ensure MailTips are enabled for end users (Automated)",
+    "category": "6. Exchange Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Enable mail alerts for end users"
+    ],
+    "status": "Open",
+    "Control": "6.5.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "6.5.1 (L1) Ensure modern authentication for Exchange Online is enabled (Automated)",
+    "category": "6. Exchange Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Disable basic authentication for remotely managed clients",
+      "Manage authentication methods",
+      "Ensure modern authentication method are enabled"
+    ],
+    "status": "Open",
+    "Control": "6.5.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "6.3.1 (L2) Ensure users installing Outlook add-ins is not allowed (Automated)",
+    "category": "6. Exchange Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Prevent users from installing add-ins in applications"
+    ],
+    "status": "Open",
+    "Control": "6.3.1",
+    "Profile": "L2"
+  },
+  {
+    "summary": "6.2.3 (L1) Ensure email from external senders is identified (Automated)",
+    "category": "6. Exchange Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Set up Sender Policy Framework to prevent spoofing",
+      "Manage mail flow from external senders",
+      "Manage spoofed senders using the spoof intelligence",
+      "Enable external email identification"
+    ],
+    "status": "Open",
+    "Control": "6.2.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "6.2.2 (L1) Ensure mail transport rules do not whitelist specific domains (Automated)",
+    "category": "6. Exchange Admin Center",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Verify that mail transport rules do not whitelist specific domains"
+    ],
+    "status": "Open",
+    "Control": "6.2.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "6.2.1 (L1) Ensure all forms of mail forwarding are blocked and/or disabled (Automated)",
+    "category": "6. Exchange Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Govern email forwarding"
+    ],
+    "status": "Open",
+    "Control": "6.2.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "6.1.3 (L1) Ensure 'AuditBypassEnabled' is not enabled on mailboxes (Automated)",
+    "category": "6. Exchange Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enable audit logging",
+      "Ensure compliance with mailbox audit bypass settings"
+    ],
+    "status": "Open",
+    "Control": "6.1.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "6.1.2 (L1) Ensure mailbox audit actions are configured (Automated)",
+    "category": "6. Exchange Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Facilitate the investigation of compromised user account mailboxes"
+    ],
+    "status": "Open",
+    "Control": "6.1.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "6.1.1 (L1) Ensure 'AuditDisabled' organizationally is set to 'False' (Automated)",
+    "category": "6. Exchange Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Facilitate the investigation of compromised user account mailboxes"
+    ],
+    "status": "Open",
+    "Control": "6.1.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.3.4 (L1) Ensure approval is required for Global Administrator role activation (Manual)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "5.3.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.3.3 (L1) Ensure 'Access reviews' for privileged roles are configured (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Review user accounts",
+      "Review and respond to access requests in Privileged Access Management solution for on-premise accounts",
+      "Establish access reviews for high privileged roles"
+    ],
+    "status": "Open",
+    "Control": "5.3.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.3.2 (L1) Ensure 'Access reviews' for Guest Users are configured (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Automate actions based on access reviews",
+      "Create and manage emergency or temporary access",
+      "Remove a guest user"
+    ],
+    "status": "Open",
+    "Control": "5.3.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.3.1 (L2) Ensure 'Privileged Identity Management' is used to manage roles (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Use role-based privileged account management"
+    ],
+    "status": "Open",
+    "Control": "5.3.1",
+    "Profile": "L2"
+  },
+  {
+    "summary": "5.2.4.1 (L1) Ensure 'Self service password reset enabled' is set to 'All' (Manual)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Enable self-service password reset"
+    ],
+    "status": "Open",
+    "Control": "5.2.4.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.3.5 (L1) Ensure weak authentication methods are disabled (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "5.2.3.5",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.3.4 (L1) Ensure all member users are 'MFA capable' (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "5.2.3.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.3.3 (L1) Ensure password protection is enabled for on-prem Active Directory (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enforce authenticators strength and complexity"
+    ],
+    "status": "Open",
+    "Control": "5.2.3.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.3.2 (L1) Ensure custom banned passwords lists are used (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Define custom banned password lists"
+    ],
+    "status": "Open",
+    "Control": "5.2.3.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.3.1 (L1) Ensure Microsoft Authenticator is configured to protect against MFA fatigue (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enhance multi-factor authentication settings to counteract authentication fatigue"
+    ],
+    "status": "Open",
+    "Control": "5.2.3.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.2.11 (L1) Ensure sign-in frequency for Intune Enrollment is set to 'Every time' (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "5.2.2.11",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.2.10 (L1) Ensure a managed device is required to register security information (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "5.2.2.10",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.2.9 (L2) Ensure a managed device is required for authentication (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "5.2.2.9",
+    "Profile": "L2"
+  },
+  {
+    "summary": "5.2.2.8 (L2) Ensure 'sign-in risk' is blocked for medium and high risk (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Restrict administrative roles for cloud platform supervision"
+    ],
+    "status": "Open",
+    "Control": "5.2.2.8",
+    "Profile": "L2"
+  },
+  {
+    "summary": "5.2.2.7 (L1) Enable Identity Protection sign-in risk policies (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Improve sign-in security"
+    ],
+    "status": "Open",
+    "Control": "5.2.2.7",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.2.6 (L1) Enable Identity Protection user risk policies (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Configure and enable user risk policies"
+    ],
+    "status": "Open",
+    "Control": "5.2.2.6",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.2.5 (L2) Ensure 'Phishing-resistant MFA strength' is required for Administrators (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Deploy phishing-resistant multi factor authentication strength for administrative roles"
+    ],
+    "status": "Open",
+    "Control": "5.2.2.5",
+    "Profile": "L2"
+  },
+  {
+    "summary": "5.2.2.4 (L1) Ensure Sign-in frequency is enabled and browser sessions are not persistent for Administrative users (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Disable browser persistence",
+      "Implement sign-in frequency and non-persistent browser sessions for administrative users"
+    ],
+    "status": "Open",
+    "Control": "5.2.2.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.2.3 (L1) Enable Conditional Access policies to block legacy authentication (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Block legacy authentication",
+      "Stop legacy protocols communication"
+    ],
+    "status": "Open",
+    "Control": "5.2.2.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.2.2 (L1) Ensure multifactor authentication is enabled for all users (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2"
+    ],
+    "Microsoft Recommendation": [
+      "Enable multifactor authentication for organization's users"
+    ],
+    "status": "Open",
+    "Control": "5.2.2.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.2.2.1 (L1) Ensure multifactor authentication is enabled for all users in administrative roles (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enable multi-factor authentication registration",
+      "Enable multi-factor authentication for admins",
+      "Configure and manage multi-factor authentication (MFA) fraud alerts"
+    ],
+    "status": "Open",
+    "Control": "5.2.2.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.1.8.1 (L1) Ensure that password hash sync is enabled for hybrid deployments (Manual)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Use password hash sync in hybrid environments"
+    ],
+    "status": "Open",
+    "Control": "5.1.8.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.1.6.3 (L2) Ensure guest user invitations are limited to the Guest Inviter role (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "5.1.6.3",
+    "Profile": "L2"
+  },
+  {
+    "summary": "5.1.6.2 (L1) Ensure that guest user access is restricted (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "5.1.6.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.1.6.1 (L2) Ensure that collaboration invitations are sent to allowed domains only (Manual)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Configure external collaboration settings"
+    ],
+    "status": "Open",
+    "Control": "5.1.6.1",
+    "Profile": "L2"
+  },
+  {
+    "summary": "5.1.5.2 (L1) Ensure the admin consent workflow is enabled (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Establish an admin consent workflow"
+    ],
+    "status": "Open",
+    "Control": "5.1.5.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.1.5.1 (L2) Ensure user consent to apps accessing company data on their behalf is not allowed (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Configure user consent settings to applications"
+    ],
+    "status": "Open",
+    "Control": "5.1.5.1",
+    "Profile": "L2"
+  },
+  {
+    "summary": "5.1.3.1 (L1) Ensure a dynamic group for guest users is created (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Create dynamic group for guest users"
+    ],
+    "status": "Open",
+    "Control": "5.1.3.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.1.2.6 (L2) Ensure 'LinkedIn account connections' is disabled (Manual)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Disable third-party account connections integration"
+    ],
+    "status": "Open",
+    "Control": "5.1.2.6",
+    "Profile": "L2"
+  },
+  {
+    "summary": "5.1.2.5 (L2) Ensure the option to remain signed in is hidden (Manual)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Improve sign-in security",
+      "Ensure the option to remain signed in is hidden after login"
+    ],
+    "status": "Open",
+    "Control": "5.1.2.5",
+    "Profile": "L2"
+  },
+  {
+    "summary": "5.1.2.4 (L1) Ensure access to the Entra admin center is restricted (Manual)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Restrict non-privileged user access to administrative portal"
+    ],
+    "status": "Open",
+    "Control": "5.1.2.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.1.2.3 (L1) Ensure 'Restrict non-admin users from creating tenants' is set to 'Yes' (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Restrict tenant creation by non-privileged users"
+    ],
+    "status": "Open",
+    "Control": "5.1.2.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "5.1.2.2 (L2) Ensure third party integrated applications are not allowed (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Restrict use of third-party storage services",
+      "Prohibit third-party integrated applications"
+    ],
+    "status": "Open",
+    "Control": "5.1.2.2",
+    "Profile": "L2"
+  },
+  {
+    "summary": "5.1.2.1 (L1) Ensure 'Per-user MFA' is disabled (Automated)",
+    "category": "5. Microsoft Entra Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enable multi-factor authentication for admins",
+      "Enable multifactor authentication for organization's users"
+    ],
+    "status": "Open",
+    "Control": "5.1.2.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "3.3.1 (L1) Ensure SharePoint Online Information Protection policies are set up and used (Manual)",
+    "category": "3. Microsoft Purview",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Configure auto-labeling policies to automatically apply sensitivity labels for relevant sites and applications"
+    ],
+    "status": "Open",
+    "Control": "3.3.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "3.2.2 (L1) Ensure DLP policies are enabled for Microsoft Teams (Automated)",
+    "category": "3. Microsoft Purview",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Prevent the sharing of sensitive information within business communication platforms",
+      "Create and deploy data loss prevention policies",
+      "Protect against and prevent data leaks"
+    ],
+    "status": "Open",
+    "Control": "3.2.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "3.2.1 (L1) Ensure DLP policies are enabled (Manual)",
+    "category": "3. Microsoft Purview",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Create customized DLP policies for Personal Data"
+    ],
+    "status": "Open",
+    "Control": "3.2.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "3.1.1 (L1) Ensure Microsoft 365 audit log search is Enabled (Automated)",
+    "category": "3. Microsoft Purview",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Verify logging settings",
+      "Enable audit logging"
+    ],
+    "status": "Open",
+    "Control": "3.1.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.4.4 (L1) Ensure Zero-hour auto purge for Microsoft Teams is on (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "2.4.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.4.3 (L2) Ensure Microsoft Defender for Cloud Apps is enabled and configured (Manual)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enforce real-time application access monitoring for on-premise applications",
+      "Implement a cloud access security broker tool"
+    ],
+    "status": "Open",
+    "Control": "2.4.3",
+    "Profile": "L2"
+  },
+  {
+    "summary": "2.4.2 (L1) Ensure Priority accounts have 'Strict protection' presets applied (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enable preset security policies for users",
+      "Configure priority account protection"
+    ],
+    "status": "Open",
+    "Control": "2.4.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.4.1 (L1) Ensure Priority account protection is enabled and configured (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Configure priority account protection"
+    ],
+    "status": "Open",
+    "Control": "2.4.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.1.14 (L1) Ensure inbound anti-spam policies do not contain allowed domains (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "2.1.14",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.1.13 (L1) Ensure the connection filter safe list is off (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "2.1.13",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.1.12 (L1) Ensure the connection filter IP allow list is not used (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "2.1.12",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.1.11 (L2) Ensure comprehensive attachment filtering is applied (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Detect malicious files and attachments"
+    ],
+    "status": "Open",
+    "Control": "2.1.11",
+    "Profile": "L2"
+  },
+  {
+    "summary": "2.1.10 (L1) Ensure DMARC Records for all Exchange Online domains are published (Manual)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enhance email security through SPF, DKIM, and DMARC"
+    ],
+    "status": "Open",
+    "Control": "2.1.10",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.1.9 (L1) Ensure that DKIM is enabled for all Exchange Online Domains (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enhance email security through SPF, DKIM, and DMARC",
+      "Enable DomainKeys Identified Mail (DKIM)"
+    ],
+    "status": "Open",
+    "Control": "2.1.9",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.1.8 (L1) Ensure that SPF records are published for all Exchange Domains (Manual)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enhance email security through SPF, DKIM, and DMARC",
+      "Set up Sender Policy Framework to prevent spoofing",
+      "Manage spoofed senders using the spoof intelligence"
+    ],
+    "status": "Open",
+    "Control": "2.1.8",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.1.7 (L2) Ensure that an anti-phishing policy has been created (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Set up anti-phishing policies"
+    ],
+    "status": "Open",
+    "Control": "2.1.7",
+    "Profile": "L2"
+  },
+  {
+    "summary": "2.1.6 (L1) Ensure Exchange Online Spam Policies are set to notify administrators (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Implement spam filter",
+      "Implement outbound spam policy"
+    ],
+    "status": "Open",
+    "Control": "2.1.6",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.1.5 (L2) Ensure Safe Attachments for SharePoint, OneDrive, and Microsoft Teams is Enabled (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Detect malicious files and attachments"
+    ],
+    "status": "Open",
+    "Control": "2.1.5",
+    "Profile": "L2"
+  },
+  {
+    "summary": "2.1.4 (L2) Ensure Safe Attachments policy is enabled (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Detect malicious files and attachments"
+    ],
+    "status": "Open",
+    "Control": "2.1.4",
+    "Profile": "L2"
+  },
+  {
+    "summary": "2.1.3 (L1) Ensure notifications for internal users sending malware is Enabled (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Implement anti-malware policies",
+      "Enable notifications for internal users sending malware"
+    ],
+    "status": "Open",
+    "Control": "2.1.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.1.2 (L1) Ensure the Common Attachment Types Filter is enabled (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Detect malicious files and attachments"
+    ],
+    "status": "Open",
+    "Control": "2.1.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "2.1.1 (L2) Ensure Safe Links for Office Applications is Enabled (Automated)",
+    "category": "2. Microsoft 365 Defender",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Set up Safe Links policies"
+    ],
+    "status": "Open",
+    "Control": "2.1.1",
+    "Profile": "L2"
+  },
+  {
+    "summary": "1.3.8 (L2) Ensure that Sways cannot be shared with people outside of your organization (Manual)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Manage sharing of information outside your organization"
+    ],
+    "status": "Open",
+    "Control": "1.3.8",
+    "Profile": "L2"
+  },
+  {
+    "summary": "1.3.7 (L2) Ensure 'third-party storage services' are restricted in 'Microsoft 365 on the web' (Manual)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Restrict use of third-party storage services"
+    ],
+    "status": "Open",
+    "Control": "1.3.7",
+    "Profile": "L2"
+  },
+  {
+    "summary": "1.3.6 (L2) Ensure the customer lockbox feature is enabled (Automated)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Control data by restricting access to cloud service providers"
+    ],
+    "status": "Open",
+    "Control": "1.3.6",
+    "Profile": "L2"
+  },
+  {
+    "summary": "1.3.5 (L1) Ensure internal phishing protection for Forms is enabled (Manual)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Enable internal phishing protection for data collection tool"
+    ],
+    "status": "Open",
+    "Control": "1.3.5",
+    "Profile": "L1"
+  },
+  {
+    "summary": "1.3.4 (L1) Ensure 'User owned apps and services' is restricted (Manual)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Prevent users from installing add-ins in applications"
+    ],
+    "status": "Open",
+    "Control": "1.3.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "1.3.3 (L2) Ensure 'External sharing' of calendars is not available (Automated)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Control anonymous calendar sharing",
+      "Govern calendar sharing"
+    ],
+    "status": "Open",
+    "Control": "1.3.3",
+    "Profile": "L2"
+  },
+  {
+    "summary": "1.3.2 (L1) Ensure 'Idle session timeout' is set to '3 hours (or less)' for unmanaged devices (Manual)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Turn on idle session timeout"
+    ],
+    "status": "Open",
+    "Control": "1.3.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "1.3.1 (L1) Ensure the 'Password expiration policy' is set to 'Set passwords to never expire (recommended)' (Automated)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Establish and enforce password lifetime requirements",
+      "Establish and enforce password policy"
+    ],
+    "status": "Open",
+    "Control": "1.3.1",
+    "Profile": "L1"
+  },
+  {
+    "summary": "1.2.2 (L1) Ensure sign-in to shared mailboxes is blocked (Automated)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [],
+    "Microsoft Recommendation": [
+      "Block sign-in to shared mailboxes"
+    ],
+    "status": "Open",
+    "Control": "1.2.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "1.2.1 (L2) Ensure that only organizationally managed/approved public groups exist (Automated)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Manage organizational users and groups",
+      "Ensure only organizationally managed/approved public groups exist"
+    ],
+    "status": "Open",
+    "Control": "1.2.1",
+    "Profile": "L2"
+  },
+  {
+    "summary": "1.1.4 (L1) Ensure administrative accounts use licenses with a reduced application footprint (Automated)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [],
+    "status": "Open",
+    "Control": "1.1.4",
+    "Profile": "L1"
+  },
+  {
+    "summary": "1.1.3 (L1) Ensure that between two and four global admins are designated (Automated)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Establish optimal number of global administrators"
+    ],
+    "status": "Open",
+    "Control": "1.1.3",
+    "Profile": "L1"
+  },
+  {
+    "summary": "1.1.2 (L1) Ensure two emergency access accounts have been defined (Manual)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Create and manage emergency or temporary access",
+      "Ensure that emergency access accounts are defined"
+    ],
+    "status": "Open",
+    "Control": "1.1.2",
+    "Profile": "L1"
+  },
+  {
+    "summary": "1.1.1 (L1) Ensure Administrative accounts are cloud-only (Automated)",
+    "category": "1. Microsoft 365 Admin Center",
+    "Implementation Group": [
+      "IG1",
+      "IG2",
+      "IG3"
+    ],
+    "Microsoft Recommendation": [
+      "Ensure that administrative accounts are separate and cloud-only"
+    ],
+    "status": "Open",
+    "Control": "1.1.1",
+    "Profile": "L1"
+  }
+]

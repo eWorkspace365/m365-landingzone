@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIS M365 v5.0.0 — Dashboard (MS Recommendation) — Per-Row Links</title>
+<style>
+  :root {
+    --bg: #f5f7fb;
+    --panel: #ffffff;
+    --text: #0f172a;
+    --subtext: #475569;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --accent: #3b82f6;
+    --accent-2: #06b6d4;
+    --good: #16a34a;
+    --warn: #d97706;
+    --bad:  #dc2626;
+    --chip-bg: #eff6ff;
+    --chip-border: #dbeafe;
+    --chip-text: #1e40af;
+    --radius: 14px;
+    --shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    --shadow-weak: 0 1px 2px rgba(15, 23, 42, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin:0; padding:0; background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  }
+  header.hero {
+    position: sticky; top: 0; z-index: 40;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 14px 18px; }
+  .title-row { display:flex; align-items:center; gap:12px; }
+  .logo {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display:grid; place-items:center; box-shadow: var(--shadow);
+    color:white;
+  }
+  .logo svg { width:20px; height:20px; }
+  h1 { margin:0; font-size: clamp(18px, 2.3vw, 22px); font-weight: 750; letter-spacing: 0.2px; }
+  .subtitle { color: var(--subtext); font-size: 11px; margin-top: 2px; }
+  .toolbar {
+    margin-top: 12px;
+    display:grid; grid-template-columns: 1fr auto auto; gap:8px; align-items:center;
+  }
+  .stat {
+    display:flex; align-items:center; gap:6px;
+    background: var(--panel); border:1px solid var(--border);
+    padding: 6px 10px; border-radius: 999px; box-shadow: var(--shadow-weak);
+    color: var(--subtext); font-size: 12px;
+  }
+  .btn {
+    cursor:pointer; font-weight:600;
+    border-radius: 10px; padding:8px 12px;
+    border:1px solid var(--border-strong);
+    background: var(--panel); color: var(--text);
+    transition: transform .05s ease-in-out, border-color .15s, box-shadow .15s, background .15s;
+    box-shadow: var(--shadow-weak);
+    font-size: 12px;
+  }
+  .btn:hover { border-color: var(--accent); }
+  .btn:active { transform: translateY(1px); }
+  .btn.primary { background: var(--accent); color: white; border-color: var(--accent); }
+  .btn.primary:hover { filter: brightness(0.98); }
+
+  .field, select, input[type="search"] {
+    width:100%;
+    border-radius: 10px;
+    border: 1px solid var(--border-strong);
+    padding: 9px 12px;
+    background: #ffffff;
+    color: var(--text);
+    outline: none;
+    box-shadow: var(--shadow-weak);
+    font-size: 12.5px;
+  }
+  input::placeholder { color: #94a3b8; }
+
+  select {
+    appearance: none; -webkit-appearance: none; -moz-appearance: none;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 20 20' fill='none' stroke='%23566' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 8 10 12 14 8'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px 18px;
+    padding-right: 34px;
+  }
+  select:focus, input[type="search"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.14);
+  }
+
+  main { max-width: 1280px; margin: 14px auto 46px; padding: 0 18px; }
+
+  .card { background: var(--panel); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+  .pad { padding: 12px; }
+
+  .summary-row { display:flex; gap:8px; align-items:center; margin: 12px 0; }
+  .summary-row label { min-width: 140px; color: var(--subtext); font-size: 11px; }
+
+  .filters-grid {
+    display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .filter-group label { display:block; font-size: 11px; color: var(--subtext); margin-bottom: 5px; }
+  .filter-group select { width:100%; }
+
+  .table-wrap { margin-top: 10px; overflow: clip; border-top-left-radius: var(--radius); border-top-right-radius: var(--radius); }
+  table { width:100%; border-collapse: collapse; }
+  thead th {
+    position: sticky; top: 0; z-index: 10;
+    background: #f8fafc; color:#0f172a;
+    border-bottom: 1px solid var(--border);
+    text-align:left; font-weight:700; font-size: 12px; padding: 10px; cursor: pointer; user-select:none;
+  }
+  tbody td {
+    font-size: 12.5px; padding: 10px; border-bottom: 1px solid var(--border);
+    vertical-align: top; color: #111827;
+  }
+  tbody tr:nth-child(odd) { background: #fbfdff; }
+  tbody tr:hover { background: #f1f5f9; }
+  .sort-ind { font-size:10px; color:#334155; margin-left:6px; }
+  .chips { display:flex; gap:5px; flex-wrap: wrap; }
+  .chip { background: var(--chip-bg); color: var(--chip-text); border:1px solid var(--chip-border); padding: 2px 7px; border-radius: 999px; font-size: 11px; }
+
+  /* Link styling for Summary */
+  td a.summary-link {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  td a.summary-link:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="title-row">
+      <div>
+        <h1></h1>
+        <div class="subtitle">Generated 2025-09-24 12:30</div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="stat" title="Rows currently shown">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <span id="shownCount">0</span>/<span id="totalCount">130</span>
+      </div>
+      <button id="clear" class="btn" title="Clear all filters">Clear filters</button>
+      <button id="exportCsv" class="btn primary" title="Export current view to CSV">Export CSV</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <div class="pad">
+      <div class="summary-row">
+        <label for="summaryQ">Search in Summary</label>
+        <input id="summaryQ" class="field" type="search" placeholder="Type keywords to filter the Summary column only">
+      </div>
+
+      <div class="filters-grid" id="filtersGrid"></div>
+    </div>
+    <div class="table-wrap">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th data-col='Summary'>Summary <span class='sort-ind'></span></th><th data-col='Category'>Category <span class='sort-ind'></span></th><th data-col='Implementation Group'>Implementation Group <span class='sort-ind'></span></th><th data-col='Microsoft Recommendation'>Microsoft Recommendation <span class='sort-ind'></span></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="pagination">
+        <button id="prevPage" class="btn">Prev</button>
+        <span id="pageInfo" class="subtitle">Page 1</span>
+        <button id="nextPage" class="btn">Next</button>
+        <select id="pageSize" class="field page-size" title="Rows per page">
+          <option>10</option>
+          <option selected>25</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+const RAW = [{"Summary": "5.2.3.6 (L1) Ensure system-preferred multifactor authentication is enabled (Manual)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "2.2.1 (L1) Ensure emergency access account activity is monitored (Manual)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "5.3.5 (L1) Ensure approval is required for Privileged Role Administrator activation (Manual)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "5.2.2.12 (L1) Ensure the device code sign-in flow is blocked (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "4.2 (L2) Ensure device enrollment for personally owned devices is blocked by default (Manual)", "Category": "4. Microsoft Intune Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "4.1 (L2) Ensure devices without a compliance policy are marked 'not compliant' (Automated)", "Category": "4. Microsoft Intune Admin Center", "Implementation Group": [], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "9.1.11 (L1) Ensure Service Principals cannot create and use profiles (Manual)", "Category": "9. Microsoft Fabric", "Implementation Group": [], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "9.1.10 (L1) Ensure access to APIs by Service Principals is restricted (Manual)", "Category": "9. Microsoft Fabric", "Implementation Group": [], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "9.1.9 (L1) Ensure 'Block ResourceKey Authentication' is 'Enabled' (Manual)", "Category": "9. Microsoft Fabric", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Manage resource key authentication"], "_Link": "#"}, {"Summary": "9.1.8 (L1) Ensure enabling of external data sharing is restricted (Manual)", "Category": "9. Microsoft Fabric", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Restrict external data share"], "_Link": "#"}, {"Summary": "9.1.7 (L1) Ensure shareable links are restricted (Manual)", "Category": "9. Microsoft Fabric", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Monitor the shared links"], "_Link": "#"}, {"Summary": "9.1.6 (L1) Ensure 'Allow users to apply sensitivity labels for content' is 'Enabled' (Manual)", "Category": "9. Microsoft Fabric", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Ensure sensitive label are applied to content"], "_Link": "#"}, {"Summary": "9.1.5 (L2) Ensure 'Interact with and share R and Python' visuals is 'Disabled' (Manual)", "Category": "9. Microsoft Fabric", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Ensure script-based visual interaction is disabled"], "_Link": "#"}, {"Summary": "9.1.4 (L1) Ensure 'Publish to web' is restricted (Manual)", "Category": "9. Microsoft Fabric", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Restrict publishing data on web"], "_Link": "#"}, {"Summary": "9.1.3 (L1) Ensure guest access to content is restricted (Manual)", "Category": "9. Microsoft Fabric", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Manage guest user permissions"], "_Link": "#"}, {"Summary": "9.1.2 (L1) Ensure external user invitations are restricted (Manual)", "Category": "9. Microsoft Fabric", "Implementation Group": ["IG3"], "Microsoft Recommendation": ["Manage external user invitation settings"], "_Link": "#"}, {"Summary": "9.1.1 (L1) Ensure guest user access is restricted (Manual)", "Category": "9. Microsoft Fabric", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Regulate access permissions for guest users"], "_Link": "#"}, {"Summary": "8.6.1 (L1) Ensure users can report security concerns in Teams (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Enable user reporting of security concerns in team collaboration platforms"], "_Link": "#"}, {"Summary": "8.5.9 (L2) Ensure meeting recording is off by default (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "8.5.8 (L2) Ensure external meeting chat is off (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "8.5.7 (L1) Ensure external participants can't give or request control (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Limit an external participant to give or request control in a meeting"], "_Link": "#"}, {"Summary": "8.5.6 (L2) Ensure only organizers and co-organizers can present (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Prevent the sharing of sensitive information within business communication platforms"], "_Link": "#"}, {"Summary": "8.5.5 (L2) Ensure meeting chat does not allow anonymous users (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": [], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "8.5.4 (L1) Ensure users dialing in can't bypass the lobby (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Configure meetings to prevent users from bypassing lobbies for meetings"], "_Link": "#"}, {"Summary": "8.5.3 (L1) Ensure only people in my org can bypass the lobby (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": ["IG3"], "Microsoft Recommendation": ["Configure meetings to prevent users from bypassing lobbies for meetings"], "_Link": "#"}, {"Summary": "8.5.2 (L1) Ensure anonymous users and dial-in callers can't start a meeting (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Restrict Anonymous user joins during meetings", "Configure access to initiate meeting recordings in virtual meetings", "Prevent anonymous users from starting meetings"], "_Link": "#"}, {"Summary": "8.5.1 (L2) Ensure anonymous users can't join a meeting (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Restrict Anonymous user joins during meetings"], "_Link": "#"}, {"Summary": "8.4.1 (L1) Ensure app permission policies are configured (Manual)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Configure app permission policies in team collaboration platforms"], "_Link": "#"}, {"Summary": "8.2.4 (L1) Ensure communication with Skype users is disabled (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "8.2.3 (L1) Ensure external Teams users cannot initiate conversations (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": [], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "8.2.2 (L1) Ensure communication with unmanaged Teams users is disabled (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": [], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "8.2.1 (L2) Ensure external domains are restricted in the Teams admin center (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": [], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "8.1.2 (L1) Ensure users can't send emails to a channel email address (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Disable email in team collaboration platform", "Manage channel meetings"], "_Link": "#"}, {"Summary": "8.1.1 (L2) Ensure external file sharing in Teams is enabled for only approved cloud storage services (Automated)", "Category": "8. Microsoft Teams Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Restrict external file sharing to only approved cloud storage services"], "_Link": "#"}, {"Summary": "7.3.4 (L1) Ensure custom script execution is restricted on site collections (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": ["IG3"], "Microsoft Recommendation": ["Restrict custom script execution on personal and self-service sites"], "_Link": "#"}, {"Summary": "7.3.3 (L1) Ensure custom script execution is restricted on personal sites (Manual)", "Category": "7. SharePoint Admin Center", "Implementation Group": ["IG3"], "Microsoft Recommendation": ["Restrict custom script execution on personal and self-service sites"], "_Link": "#"}, {"Summary": "7.3.2 (L2) Ensure OneDrive sync is restricted for unmanaged devices (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Allow sync only on managed devices"], "_Link": "#"}, {"Summary": "7.3.1 (L2) Ensure Office 365 SharePoint infected files are disallowed for download (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "7.2.11 (L1) Ensure the SharePoint default sharing link permission is set (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": [], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "7.2.10 (L1) Ensure reauthentication with verification code is restricted (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Restrict reauthentication period for verification code"], "_Link": "#"}, {"Summary": "7.2.9 (L1) Ensure guest access to a site or OneDrive will expire automatically (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Remove a guest user", "Set automatic expiration for guest access for internal or document management sites"], "_Link": "#"}, {"Summary": "7.2.8 (L2) Ensure external sharing is restricted by security group (Manual)", "Category": "7. SharePoint Admin Center", "Implementation Group": ["IG3"], "Microsoft Recommendation": ["Restrict guest users from sharing information"], "_Link": "#"}, {"Summary": "7.2.7 (L1) Ensure link sharing is restricted in SharePoint and OneDrive (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Restrict link sharing in document management and collaboration sites"], "_Link": "#"}, {"Summary": "7.2.6 (L2) Ensure SharePoint external sharing is managed through domain whitelist/blacklists (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Limit document sharing to external domains"], "_Link": "#"}, {"Summary": "7.2.5 (L2) Ensure that SharePoint guest users cannot share items they don't own (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Restrict guest users from sharing information"], "_Link": "#"}, {"Summary": "7.2.4 (L2) Ensure OneDrive content sharing is restricted (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Enable information barriers"], "_Link": "#"}, {"Summary": "7.2.3 (L1) Ensure external content sharing is restricted (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Limit document sharing to external domains", "Restrict external content sharing"], "_Link": "#"}, {"Summary": "7.2.2 (L1) Ensure SharePoint and OneDrive integration with Azure AD B2B is enabled (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Allow invited guest-users to access specific applications", "Maintain secure collaborative work across organizations", "Restrict guest/external user access permissions"], "_Link": "#"}, {"Summary": "7.2.1 (L1) Ensure modern authentication for SharePoint applications is required (Automated)", "Category": "7. SharePoint Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Manage authentication methods", "Block applications that don't use modern authentication", "Ensure modern authentication method are enabled"], "_Link": "#"}, {"Summary": "6.5.4 (L1) Ensure SMTP AUTH is disabled (Automated)", "Category": "6. Exchange Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "6.5.3 (L2) Ensure additional storage providers are restricted in Outlook on the web (Automated)", "Category": "6. Exchange Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Limit use of additional storage providers"], "_Link": "#"}, {"Summary": "6.5.2 (L1) Ensure MailTips are enabled for end users (Automated)", "Category": "6. Exchange Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Enable mail alerts for end users"], "_Link": "#"}, {"Summary": "6.5.1 (L1) Ensure modern authentication for Exchange Online is enabled (Automated)", "Category": "6. Exchange Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Disable basic authentication for remotely managed clients", "Manage authentication methods", "Ensure modern authentication method are enabled"], "_Link": "#"}, {"Summary": "6.3.1 (L2) Ensure users installing Outlook add-ins is not allowed (Automated)", "Category": "6. Exchange Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Prevent users from installing add-ins in applications"], "_Link": "#"}, {"Summary": "6.2.3 (L1) Ensure email from external senders is identified (Automated)", "Category": "6. Exchange Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Set up Sender Policy Framework to prevent spoofing", "Manage mail flow from external senders", "Manage spoofed senders using the spoof intelligence", "Enable external email identification"], "_Link": "#"}, {"Summary": "6.2.2 (L1) Ensure mail transport rules do not whitelist specific domains (Automated)", "Category": "6. Exchange Admin Center", "Implementation Group": ["IG3"], "Microsoft Recommendation": ["Verify that mail transport rules do not whitelist specific domains"], "_Link": "#"}, {"Summary": "6.2.1 (L1) Ensure all forms of mail forwarding are blocked and/or disabled (Automated)", "Category": "6. Exchange Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Govern email forwarding"], "_Link": "#"}, {"Summary": "6.1.3 (L1) Ensure 'AuditBypassEnabled' is not enabled on mailboxes (Automated)", "Category": "6. Exchange Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Enable audit logging", "Ensure compliance with mailbox audit bypass settings"], "_Link": "#"}, {"Summary": "6.1.2 (L1) Ensure mailbox audit actions are configured (Automated)", "Category": "6. Exchange Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Facilitate the investigation of compromised user account mailboxes"], "_Link": "#"}, {"Summary": "6.1.1 (L1) Ensure 'AuditDisabled' organizationally is set to 'False' (Automated)", "Category": "6. Exchange Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Facilitate the investigation of compromised user account mailboxes"], "_Link": "#"}, {"Summary": "5.3.4 (L1) Ensure approval is required for Global Administrator role activation (Manual)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "5.3.3 (L1) Ensure 'Access reviews' for privileged roles are configured (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Review user accounts", "Review and respond to access requests in Privileged Access Management solution for on-premise accounts", "Establish access reviews for high privileged roles"], "_Link": "#"}, {"Summary": "5.3.2 (L1) Ensure 'Access reviews' for Guest Users are configured (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Automate actions based on access reviews", "Create and manage emergency or temporary access", "Remove a guest user"], "_Link": "#"}, {"Summary": "5.3.1 (L2) Ensure 'Privileged Identity Management' is used to manage roles (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Use role-based privileged account management"], "_Link": "#"}, {"Summary": "5.2.4.1 (L1) Ensure 'Self service password reset enabled' is set to 'All' (Manual)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Enable self-service password reset"], "_Link": "#"}, {"Summary": "5.2.3.5 (L1) Ensure weak authentication methods are disabled (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "5.2.3.4 (L1) Ensure all member users are 'MFA capable' (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "5.2.3.3 (L1) Ensure password protection is enabled for on-prem Active Directory (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Enforce authenticators strength and complexity"], "_Link": "#"}, {"Summary": "5.2.3.2 (L1) Ensure custom banned passwords lists are used (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Define custom banned password lists"], "_Link": "#"}, {"Summary": "5.2.3.1 (L1) Ensure Microsoft Authenticator is configured to protect against MFA fatigue (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Enhance multi-factor authentication settings to counteract authentication fatigue"], "_Link": "#"}, {"Summary": "5.2.2.11 (L1) Ensure sign-in frequency for Intune Enrollment is set to 'Every time' (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "5.2.2.10 (L1) Ensure a managed device is required to register security information (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "5.2.2.9 (L2) Ensure a managed device is required for authentication (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "5.2.2.8 (L2) Ensure 'sign-in risk' is blocked for medium and high risk (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Restrict administrative roles for cloud platform supervision"], "_Link": "#"}, {"Summary": "5.2.2.7 (L1) Enable Identity Protection sign-in risk policies (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Improve sign-in security"], "_Link": "#"}, {"Summary": "5.2.2.6 (L1) Enable Identity Protection user risk policies (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Configure and enable user risk policies"], "_Link": "#"}, {"Summary": "5.2.2.5 (L2) Ensure 'Phishing-resistant MFA strength' is required for Administrators (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Deploy phishing-resistant multi factor authentication strength for administrative roles"], "_Link": "#"}, {"Summary": "5.2.2.4 (L1) Ensure Sign-in frequency is enabled and browser sessions are not persistent for Administrative users (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Disable browser persistence", "Implement sign-in frequency and non-persistent browser sessions for administrative users"], "_Link": "#"}, {"Summary": "5.2.2.3 (L1) Enable Conditional Access policies to block legacy authentication (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Block legacy authentication", "Stop legacy protocols communication"], "_Link": "#"}, {"Summary": "5.2.2.2 (L1) Ensure multifactor authentication is enabled for all users (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2"], "Microsoft Recommendation": ["Enable multifactor authentication for organization's users"], "_Link": "#"}, {"Summary": "5.2.2.1 (L1) Ensure multifactor authentication is enabled for all users in administrative roles (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Enable multi-factor authentication registration", "Enable multi-factor authentication for admins", "Configure and manage multi-factor authentication (MFA) fraud alerts"], "_Link": "#"}, {"Summary": "5.1.8.1 (L1) Ensure that password hash sync is enabled for hybrid deployments (Manual)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Use password hash sync in hybrid environments"], "_Link": "#"}, {"Summary": "5.1.6.3 (L2) Ensure guest user invitations are limited to the Guest Inviter role (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "5.1.6.2 (L1) Ensure that guest user access is restricted (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "5.1.6.1 (L2) Ensure that collaboration invitations are sent to allowed domains only (Manual)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Configure external collaboration settings"], "_Link": "#"}, {"Summary": "5.1.5.2 (L1) Ensure the admin consent workflow is enabled (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Establish an admin consent workflow"], "_Link": "#"}, {"Summary": "5.1.5.1 (L2) Ensure user consent to apps accessing company data on their behalf is not allowed (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Configure user consent settings to applications"], "_Link": "#"}, {"Summary": "5.1.3.1 (L1) Ensure a dynamic group for guest users is created (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Create dynamic group for guest users"], "_Link": "#"}, {"Summary": "5.1.2.6 (L2) Ensure 'LinkedIn account connections' is disabled (Manual)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Disable third-party account connections integration"], "_Link": "#"}, {"Summary": "5.1.2.5 (L2) Ensure the option to remain signed in is hidden (Manual)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Improve sign-in security", "Ensure the option to remain signed in is hidden after login"], "_Link": "#"}, {"Summary": "5.1.2.4 (L1) Ensure access to the Entra admin center is restricted (Manual)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Restrict non-privileged user access to administrative portal"], "_Link": "#"}, {"Summary": "5.1.2.3 (L1) Ensure 'Restrict non-admin users from creating tenants' is set to 'Yes' (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Restrict tenant creation by non-privileged users"], "_Link": "#"}, {"Summary": "5.1.2.2 (L2) Ensure third party integrated applications are not allowed (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Restrict use of third-party storage services", "Prohibit third-party integrated applications"], "_Link": "#"}, {"Summary": "5.1.2.1 (L1) Ensure 'Per-user MFA' is disabled (Automated)", "Category": "5. Microsoft Entra Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Enable multi-factor authentication for admins", "Enable multifactor authentication for organization's users"], "_Link": "#"}, {"Summary": "3.3.1 (L1) Ensure SharePoint Online Information Protection policies are set up and used (Manual)", "Category": "3. Microsoft Purview", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Configure auto-labeling policies to automatically apply sensitivity labels for relevant sites and applications"], "_Link": "#"}, {"Summary": "3.2.2 (L1) Ensure DLP policies are enabled for Microsoft Teams (Automated)", "Category": "3. Microsoft Purview", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Prevent the sharing of sensitive information within business communication platforms", "Create and deploy data loss prevention policies", "Protect against and prevent data leaks"], "_Link": "#"}, {"Summary": "3.2.1 (L1) Ensure DLP policies are enabled (Manual)", "Category": "3. Microsoft Purview", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Create customized DLP policies for Personal Data"], "_Link": "#"}, {"Summary": "3.1.1 (L1) Ensure Microsoft 365 audit log search is Enabled (Automated)", "Category": "3. Microsoft Purview", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Verify logging settings", "Enable audit logging"], "_Link": "#"}, {"Summary": "2.4.4 (L1) Ensure Zero-hour auto purge for Microsoft Teams is on (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "2.4.3 (L2) Ensure Microsoft Defender for Cloud Apps is enabled and configured (Manual)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Enforce real-time application access monitoring for on-premise applications", "Implement a cloud access security broker tool"], "_Link": "#"}, {"Summary": "2.4.2 (L1) Ensure Priority accounts have 'Strict protection' presets applied (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Enable preset security policies for users", "Configure priority account protection"], "_Link": "#"}, {"Summary": "2.4.1 (L1) Ensure Priority account protection is enabled and configured (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG3"], "Microsoft Recommendation": ["Configure priority account protection"], "_Link": "#"}, {"Summary": "2.1.14 (L1) Ensure inbound anti-spam policies do not contain allowed domains (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "2.1.13 (L1) Ensure the connection filter safe list is off (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "2.1.12 (L1) Ensure the connection filter IP allow list is not used (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "2.1.11 (L2) Ensure comprehensive attachment filtering is applied (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Detect malicious files and attachments"], "_Link": "#"}, {"Summary": "2.1.10 (L1) Ensure DMARC Records for all Exchange Online domains are published (Manual)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Enhance email security through SPF, DKIM, and DMARC"], "_Link": "#"}, {"Summary": "2.1.9 (L1) Ensure that DKIM is enabled for all Exchange Online Domains (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Enhance email security through SPF, DKIM, and DMARC", "Enable DomainKeys Identified Mail (DKIM)"], "_Link": "#"}, {"Summary": "2.1.8 (L1) Ensure that SPF records are published for all Exchange Domains (Manual)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Enhance email security through SPF, DKIM, and DMARC", "Set up Sender Policy Framework to prevent spoofing", "Manage spoofed senders using the spoof intelligence"], "_Link": "#"}, {"Summary": "2.1.7 (L2) Ensure that an anti-phishing policy has been created (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG3"], "Microsoft Recommendation": ["Set up anti-phishing policies"], "_Link": "#"}, {"Summary": "2.1.6 (L1) Ensure Exchange Online Spam Policies are set to notify administrators (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Implement spam filter", "Implement outbound spam policy"], "_Link": "#"}, {"Summary": "2.1.5 (L2) Ensure Safe Attachments for SharePoint, OneDrive, and Microsoft Teams is Enabled (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Detect malicious files and attachments"], "_Link": "#"}, {"Summary": "2.1.4 (L2) Ensure Safe Attachments policy is enabled (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG3"], "Microsoft Recommendation": ["Detect malicious files and attachments"], "_Link": "#"}, {"Summary": "2.1.3 (L1) Ensure notifications for internal users sending malware is Enabled (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Implement anti-malware policies", "Enable notifications for internal users sending malware"], "_Link": "#"}, {"Summary": "2.1.2 (L1) Ensure the Common Attachment Types Filter is enabled (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Detect malicious files and attachments"], "_Link": "#"}, {"Summary": "2.1.1 (L2) Ensure Safe Links for Office Applications is Enabled (Automated)", "Category": "2. Microsoft 365 Defender", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Set up Safe Links policies"], "_Link": "#"}, {"Summary": "1.3.8 (L2) Ensure that Sways cannot be shared with people outside of your organization (Manual)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Manage sharing of information outside your organization"], "_Link": "#"}, {"Summary": "1.3.7 (L2) Ensure 'third-party storage services' are restricted in 'Microsoft 365 on the web' (Manual)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Restrict use of third-party storage services"], "_Link": "#"}, {"Summary": "1.3.6 (L2) Ensure the customer lockbox feature is enabled (Automated)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Control data by restricting access to cloud service providers"], "_Link": "#"}, {"Summary": "1.3.5 (L1) Ensure internal phishing protection for Forms is enabled (Manual)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Enable internal phishing protection for data collection tool"], "_Link": "#"}, {"Summary": "1.3.4 (L1) Ensure 'User owned apps and services' is restricted (Manual)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Prevent users from installing add-ins in applications"], "_Link": "#"}, {"Summary": "1.3.3 (L2) Ensure 'External sharing' of calendars is not available (Automated)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG2", "IG3"], "Microsoft Recommendation": ["Control anonymous calendar sharing", "Govern calendar sharing"], "_Link": "#"}, {"Summary": "1.3.2 (L1) Ensure 'Idle session timeout' is set to '3 hours (or less)' for unmanaged devices (Manual)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Turn on idle session timeout"], "_Link": "#"}, {"Summary": "1.3.1 (L1) Ensure the 'Password expiration policy' is set to 'Set passwords to never expire (recommended)' (Automated)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Establish and enforce password lifetime requirements", "Establish and enforce password policy"], "_Link": "#"}, {"Summary": "1.2.2 (L1) Ensure sign-in to shared mailboxes is blocked (Automated)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": [], "Microsoft Recommendation": ["Block sign-in to shared mailboxes"], "_Link": "#"}, {"Summary": "1.2.1 (L2) Ensure that only organizationally managed/approved public groups exist (Automated)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Manage organizational users and groups", "Ensure only organizationally managed/approved public groups exist"], "_Link": "#"}, {"Summary": "1.1.4 (L1) Ensure administrative accounts use licenses with a reduced application footprint (Automated)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": [], "_Link": "#"}, {"Summary": "1.1.3 (L1) Ensure that between two and four global admins are designated (Automated)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Establish optimal number of global administrators"], "_Link": "#"}, {"Summary": "1.1.2 (L1) Ensure two emergency access accounts have been defined (Manual)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Create and manage emergency or temporary access", "Ensure that emergency access accounts are defined"], "_Link": "#"}, {"Summary": "1.1.1 (L1) Ensure Administrative accounts are cloud-only (Automated)", "Category": "1. Microsoft 365 Admin Center", "Implementation Group": ["IG1", "IG2", "IG3"], "Microsoft Recommendation": ["Ensure that administrative accounts are separate and cloud-only"], "_Link": "#"}];
+const COLUMNS = ["Summary", "Category", "Implementation Group", "Microsoft Recommendation"];
+
+// Unique values helper
+function uniqueValues(field) {
+  const set = new Set();
+  for (const r of RAW) {
+    const v = r[field];
+    if (Array.isArray(v)) {
+      for (const a of v) set.add(a);
+    } else if (v !== undefined && v !== null && v !== "") {
+      set.add(v);
+    }
+  }
+  return Array.from(set).sort((a,b)=>a.toString().localeCompare(b.toString(), undefined, {numeric:true}));
+}
+
+// Dropdown filters for: Category, Implementation Group, Microsoft Recommendation
+const DROPDOWN_COLS = ["Category","Implementation Group","Microsoft Recommendation"];
+const FILTERS = Object.fromEntries(DROPDOWN_COLS.map(c => [c, null])); // null = All
+
+function renderFilters() {
+  const grid = document.getElementById("filtersGrid");
+  grid.innerHTML = "";
+  for (const col of DROPDOWN_COLS) {
+    const div = document.createElement("div");
+    div.className = "filter-group";
+    const label = document.createElement("label");
+    label.textContent = col;
+    const sel = document.createElement("select");
+    sel.className = "field";
+    const values = uniqueValues(col);
+    sel.appendChild(Object.assign(document.createElement("option"), {value: "", textContent: "All"}));
+    for (const v of values) {
+      const o = document.createElement("option");
+      o.value = v; o.textContent = v;
+      if (FILTERS[col] === v) o.selected = true;
+      sel.appendChild(o);
+    }
+    sel.addEventListener("change", () => { FILTERS[col] = sel.value || null; update(); });
+    div.appendChild(label);
+    div.appendChild(sel);
+    grid.appendChild(div);
+  }
+}
+
+let sortOrder = [["Summary", 1]]; // Default sort by Summary asc
+function compareRows(a, b) {
+  for (const [col, dir] of sortOrder) {
+    const sa = Array.isArray(a[col]) ? a[col].join(", ") : (a[col] ?? "");
+    const sb = Array.isArray(b[col]) ? b[col].join(", ") : (b[col] ?? "");
+    const cmp = sa.toString().localeCompare(sb.toString(), undefined, {numeric:true, sensitivity:"base"});
+    if (cmp !== 0) return cmp * dir;
+  }
+  return 0;
+}
+
+let currentPage = 1;
+let pageSize = 25;
+
+function applyFilters() {
+  const q = document.getElementById("summaryQ").value.trim().toLowerCase();
+  return RAW.filter(row => {
+    const sum = (row["Summary"] ?? "").toString().toLowerCase();
+    if (q && !sum.includes(q)) return false;
+
+    for (const col of DROPDOWN_COLS) {
+      const sel = FILTERS[col];
+      if (sel === null) continue;
+      const val = row[col];
+      if (col === "Implementation Group") {
+        const arr = Array.isArray(val) ? val : (val ? [val] : []);
+        if (!arr.includes(sel)) return false;
+      } else {
+        if (val !== sel) return false;
+      }
+    }
+    return true;
+  });
+}
+
+function renderTable(rows) {
+  const tbody = document.querySelector("#dataTable tbody");
+  tbody.innerHTML = "";
+  const start = (currentPage - 1) * pageSize;
+  const end = Math.min(start + pageSize, rows.length);
+  for (let i = start; i < end; i++) {
+    const r = rows[i];
+    const tr = document.createElement("tr");
+    for (const col of COLUMNS) {
+      const td = document.createElement("td");
+      const v = r[col];
+      if (Array.isArray(v)) {
+        const wrap = document.createElement("div");
+        wrap.className = "chips";
+        v.forEach(ch => { const s = document.createElement("span"); s.className="chip"; s.textContent = ch; wrap.appendChild(s); });
+        td.appendChild(wrap);
+      } else {
+        if (col === "Summary") {
+          const url = r["_Link"] || "#";
+          const a = document.createElement("a");
+          a.href = url;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.className = "summary-link";
+          a.textContent = (v ?? "").toString();
+          td.appendChild(a);
+        } else {
+          td.textContent = (v ?? "").toString();
+        }
+      }
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  }
+  document.getElementById("shownCount").textContent = rows.length;
+  const totalPages = Math.max(1, Math.ceil(rows.length / pageSize));
+  currentPage = Math.min(currentPage, totalPages);
+  document.getElementById("pageInfo").textContent = "Page " + currentPage + " / " + totalPages;
+  document.getElementById("prevPage").disabled = currentPage <= 1;
+  document.getElementById("nextPage").disabled = currentPage >= totalPages;
+}
+
+function update() {
+  let rows = applyFilters();
+  rows.sort(compareRows);
+  renderTable(rows);
+}
+
+function resetFilters() {
+  document.getElementById("summaryQ").value = "";
+  for (const col of DROPDOWN_COLS) FILTERS[col] = null;
+  currentPage = 1;
+  renderFilters();
+  update();
+}
+
+function initSorting() {
+  const headers = document.querySelectorAll("thead th");
+  headers.forEach(th => {
+    th.addEventListener("click", (e) => {
+      const col = th.dataset.col;
+      const withShift = e.shiftKey;
+      const idx = sortOrder.findIndex(s => s[0] === col);
+      if (!withShift) sortOrder = [];
+      if (idx === -1) sortOrder.push([col, 1]);
+      else {
+        const d = sortOrder[idx][1];
+        if (d === 1) sortOrder[idx][1] = -1; else sortOrder.splice(idx, 1);
+      }
+      document.querySelectorAll(".sort-ind").forEach(s => s.textContent = "");
+      sortOrder.forEach(([c, d]) => {
+        const h = document.querySelector('thead th[data-col="' + c + '"] .sort-ind');
+        if (h) h.textContent = d === 1 ? "▲" : "▼";
+      });
+      update();
+    });
+  });
+}
+
+function exportCSV() {
+  let rows = applyFilters().sort(compareRows);
+  const header = COLUMNS.join(",");
+  const csvRows = rows.map(r => COLUMNS.map(c => {
+    let v = r[c];
+    if (Array.isArray(v)) v = v.join("; ");
+    v = (v ?? "").toString().replaceAll('"','""');
+    if (/[",\n]/.test(v)) v = '"' + v + '"';
+    return v;
+  }).join(","));
+  const csv = [header, ...csvRows].join("\n");
+  const blob = new Blob([csv], {type: "text/csv;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "cis-view-msrec-links-perrow.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderFilters();
+  initSorting();
+  const sumHead = document.querySelector('thead th[data-col="Summary"] .sort-ind');
+  if (sumHead) sumHead.textContent = "▲";
+  update();
+
+  document.getElementById("summaryQ").addEventListener("input", () => { currentPage = 1; update(); });
+  document.getElementById("clear").addEventListener("click", resetFilters);
+  document.getElementById("prevPage").addEventListener("click", () => { if (currentPage>1) { currentPage--; update(); } });
+  document.getElementById("nextPage").addEventListener("click", () => { currentPage++; update(); });
+  document.getElementById("pageSize").addEventListener("change", (e) => { pageSize = parseInt(e.target.value,10); currentPage = 1; update(); });
+  document.getElementById("exportCsv").addEventListener("click", exportCSV);
+});
+</script>
+</body>
+</html>
