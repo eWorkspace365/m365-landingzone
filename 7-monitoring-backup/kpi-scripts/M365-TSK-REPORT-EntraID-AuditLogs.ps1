@@ -52,58 +52,65 @@ $results = @()
 
 # Get yesterday's date (date only, no time)
 $yesterday = (Get-Date).AddDays(-1).Date
-Write-Host "Filtering events for yesterday: $yesterday" -ForegroundColor Yellow
 
-# Process directory audits
-Write-Host "Processing directory audits..." -ForegroundColor DarkGray
+# ---------------- Process audits for yesterday ----------------
+$results = @()
+Write-Host "Processing events for yesterday: $yesterday" -ForegroundColor Yellow
+
 foreach ($audit in $DirectoryAudits) {
-    # Extract initiatedBy details
-    $initiatedBy = if ($audit.initiatedBy.user.displayName) {
-        $audit.initiatedBy.user.displayName
-    } elseif ($audit.initiatedBy.app.displayName) {
-        $audit.initiatedBy.app.displayName
-    } else {
-        "Unknown"
-    }
+    # Parse event date
+    try { $eventDate = ([DateTime]$audit.activityDateTime).Date } catch { continue }
 
-    # Extract targetResources details
-    $targetResourceDisplayName = if ($audit.targetResources) {
-        $audit.targetResources | ForEach-Object { $_.displayName } | Where-Object { $_ -ne $null } | Out-String
-    } else {
-        "None"
-    }
-
-    # Extract modifiedProperties details
-    $modifiedProperties = if ($audit.targetResources) {
-        $audit.targetResources | ForEach-Object {
-            $_.modifiedProperties | ForEach-Object {
-                "Property: $($_.displayName), OldValue: $($_.oldValue), NewValue: $($_.newValue)"
-            }
-        } | Out-String
-    } else {
-        "None"
-    }
-
-    # Extract event date
-    $eventDate = ([DateTime]$audit.activityDateTime).Date  # Parse ISO 8601 and extract only the date portion
-
-    # Filter criteria
-    if ($audit.Category -eq "GroupManagement" -and $initiatedBy -ne "Unknown" -and $initiatedBy -ne $null -and $eventDate -eq $yesterday) {
-        Write-Host "Audit entry matches filter criteria." -ForegroundColor Green
-        $results += [PSCustomObject]@{
-            ActivityDateTime = $audit.activityDateTime
-            ActivityDisplayName = $audit.activityDisplayName
-            InitiatedBy = $initiatedBy
-            Category = $audit.Category
-            ResultReason = $audit.resultReason
-            OperationType = $audit.operationType
-            Result = $audit.result
-            ModifiedProperties = $modifiedProperties.Trim()  # Remove extra whitespace
+    if ($eventDate -eq $yesterday) {
+        # InitiatedBy
+        $initiatedBy = if ($audit.initiatedBy.user.displayName) {
+            $audit.initiatedBy.user.displayName
+        } elseif ($audit.initiatedBy.app.displayName) {
+            $audit.initiatedBy.app.displayName
+        } else {
+            "Unknown"
         }
-    } else {
-        Write-Host "Audit entry does not match filter criteria." -ForegroundColor Red
+
+        # TargetResources
+        $targetResourceDisplayName = if ($audit.targetResources) {
+            $audit.targetResources | ForEach-Object { $_.displayName } | Where-Object { $_ -ne $null } | Out-String
+        } else { "None" }
+
+        # ModifiedProperties
+        $modifiedProperties = if ($audit.targetResources) {
+            $audit.targetResources | ForEach-Object {
+                $_.modifiedProperties | ForEach-Object {
+                    "Property: $($_.displayName), OldValue: $($_.oldValue), NewValue: $($_.newValue)"
+                }
+            } | Out-String
+        } else { "None" }
+
+        # Filter criteria
+        if ($audit.Category -ne "Agreement" -and $audit.ActivityDisplayName -ne "Self-service password reset flow activity progress" -and $audit.ActivityDisplayName -ne "Update device local administrator password" -and $audit.initiatedBy.app.displayName -ne "Azure AD Cloud Sync" -and $audit.initiatedBy.app.displayName -ne "Azure AD PIM" -and $audit.initiatedBy.app.displayName -ne "Microsoft Office 365 Portal" -and $audit.initiatedBy.user.displayName -ne "Microsoft Office 365 Portal" -and $audit.initiatedBy.app.displayName -ne "Microsoft password reset service" -and $audit.initiatedBy.app.displayName -ne "Azure MFA StrongAuthenticationService") {
+            Write-Host "Audit entry matches filter criteria." -ForegroundColor Green
+            $results += [PSCustomObject]@{
+                ActivityDateTime   = $audit.activityDateTime
+                ActivityDisplayName = $audit.activityDisplayName
+                InitiatedBy        = $initiatedBy
+                Category           = $audit.Category
+                ResultReason       = $audit.resultReason
+                OperationType      = $audit.operationType
+                Result             = $audit.result
+                ModifiedProperties = $modifiedProperties.Trim()  # Remove extra whitespace
+            }
+        } else {
+            Write-Host "Audit entry does not match filter criteria." -ForegroundColor Red
+        }
     }
 }
+
+Write-Host "Total events for yesterday: $($results.Count)" -ForegroundColor Cyan
+
+# Export results to JSON file
+$JsonFilePath = "DirectoryAuditsReport.json"
+$results | ConvertTo-Json -Depth 5 | Out-File -FilePath $JsonFilePath -Encoding UTF8
+Write-Host "Results exported to $JsonFilePath" -ForegroundColor Cyan
+
 
 # Generate HTML report
 Write-Host "Generating HTML report for directory audits..." -ForegroundColor DarkGray
@@ -119,9 +126,9 @@ $HTMLTable = $results | ConvertTo-Html -Head $CSSStyle -Title "Directory Audits 
 
 $htmlContent = @"
 <h2>Directory Audits Report</h2>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxp5ZQ7C2whpooKNrwsYW3knxp4M5rDjHljILObOVcLVI_o5HsnAT3g6KBYAbLY_SXgA&usqp=CAU" width="10%" hight="10%" alt="Banner Image" class="banner">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxp5ZQ7C2whpooKNrwsYW3knxp4M5rDjHljILObOVcLVI_o5HsnAT3g6KBYAbLY_SXgA&usqp=CAU" width="10%" height="10%" alt="Banner Image" class="banner">
 <h4>Organization Domain: $OrganizationDomain</h4>
-<p>This report lists all directory audits retrieved from Microsoft Graph.</p>
+<p>This report lists all directory audits retrieved from Microsoft Graph for yesterday ($yesterday).</p>
 <h3>Directory Audits</h3>
 $HTMLTable
 "@
