@@ -42,6 +42,10 @@ $Permissions = @{
                     id = "78145de6-330d-4800-a6ce-494ff2d33d07"  # DeviceManagementApps.ReadWrite.All
                     type = "Role"
                 },
+				@{
+                    id = "9255e99d-faf5-445e-bbf7-cb71482737c4"  # DeviceManagementScripts.ReadWrite.All
+                    type = "Role"
+                },
                 @{
                     id = "58ca0d9a-1575-47e1-a3cb-007ef2e4583b"  # Read Microsoft Intune RBAC settings
                     type = "Role"

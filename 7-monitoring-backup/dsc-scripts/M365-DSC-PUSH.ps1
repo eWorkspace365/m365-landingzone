@@ -8,6 +8,6 @@ param(
 )
 
 
-Start-DSCConfiguration -Path "C:\Program Files\Rubicon\microsoft365dsc\customers\$customer\baseline\$workload\M365TenantConfig" -Wait -Verbose -Force -ErrorAction Ignore
+Start-DSCConfiguration -Path "C:\DevOps\$customer\build\M365\$workload\M365TenantConfig" -Wait -Verbose -Force -ErrorAction Ignore
 
 Exit 0
