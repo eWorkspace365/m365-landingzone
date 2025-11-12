@@ -31,8 +31,6 @@ catch {
 }
 
 # Connections
-Connect-PnPOnline -Url $AdminUrl -ClientId $AppID -Thumbprint $CertificateThumbPrint -Tenant $Organization
-Connect-ExchangeOnline -CertificateThumbPrint $CertificateThumbPrint -AppID $AppID -Organization $Organization
 Connect-IPPSSession -CertificateThumbprint $CertificateThumbprint -AppID $AppID -Organization $Organization
 $version = $host | Select-Object Version
 If ($version.Version.Major -gt 1) { $host.Runspace.ThreadOptions = "ReuseThread" }

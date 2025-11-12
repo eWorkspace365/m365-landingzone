@@ -485,3 +485,38 @@ Write-Host " $OutputPath"
 if ($OpenReport) {
     Start-Process $OutputPath
 }
+
+
+# SharePoint Upload
+# Connect to your SharePoint site
+Connect-PnPOnline "https://contoso.sharepoint.com/sites/$customer" -ClientId $ApplicationID -Thumbprint $CertificateThumbprint -Tenant $TenantID
+
+# Define the folder containing HTML files for category extraction and upload
+$HtmlFolder = "C:\Users\Public\Downloads"
+
+# Get all HTML files in the folder
+$htmlFiles = Get-ChildItem -Path $HtmlFolder -Filter "*.html"
+
+# Retrieve all terms from the "PageCategory" term set
+$termSetName = "PageCategory"
+$termGroupName = "Siteverzameling - cbgmeb.sharepoint.com-sites-InformationPortalTest"
+$terms = Get-PnPTerm -TermSet $termSetName -TermGroup $termGroupName
+
+# Loop through each HTML file
+foreach ($file in $htmlFiles) {
+    # Get the page name from the file name
+    $pageName = [System.IO.Path]::GetFileNameWithoutExtension($file.Name)
+
+    # Read the content of the HTML file
+    $htmlContent = Get-Content -Path $file.FullName -Raw
+
+    # Create a modern page in SharePoint
+    Add-PnPPage -Name $pageName -LayoutType Article -Title $pageTitle
+
+    # Add the HTML content to the page
+    Add-PnPPageTextPart -Page $pageName -Text $normalizedHtmlContent
+	
+    Write-Host "Processed and uploaded page: $pageName with metadata categories set to $categoryIds"
+}
+
+Write-Host "All HTML files have been processed and uploaded to SharePoint."

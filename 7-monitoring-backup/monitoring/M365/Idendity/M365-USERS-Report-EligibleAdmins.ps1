@@ -241,8 +241,7 @@ $rowsSorted = $reportRows | Sort-Object -Property @{Expression='EligibleRoles';D
 
 $tbl = $rowsSorted | Select-Object `
   DisplayName,AccountEnabled,EligibleRoles,
-  LastSuccessfulSignInDateTime,DaysSinceLastSuccessful,
-  Licenses |
+  LastSuccessfulSignInDateTime |
   ConvertTo-Html -Fragment
 
 $generated = Get-Date -Format 'dd MMMM yyyy HH:mm'

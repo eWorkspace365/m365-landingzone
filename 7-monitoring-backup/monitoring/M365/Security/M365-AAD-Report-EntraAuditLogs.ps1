@@ -51,7 +51,7 @@ do {
 $results = @()
 
 # Get yesterday's date (date only, no time)
-$yesterday = (Get-Date).AddDays(-1).Date
+$yesterday = (Get-Date).AddDays(-0).Date
 
 # ---------------- Process audits for yesterday ----------------
 $results = @()
