@@ -97,7 +97,7 @@ Write-Verbose "Drift JSON size: $fileSizeBytes bytes. DriftDetected = $driftDete
 # 3. Build HTML content for the email (altijd mail sturen)
 # -----------------------------------------------------------------------------------
 $htmlContent = @"
-<h2>Microsoft 365 drift detection report from Rubicon Cloud Advisor</h2>
+<h2>Microsoft 365 configuration drift report from Rubicon Cloud Advisor</h2>
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxp5ZQ7C2whpooKNrwsYW3knxp4M5rDjHljILObOVcLVI_o5HsnAT3g6KBYAbLY_SXgA&usqp=CAU"
      width="10%" height="10%" alt="Banner Image" class="banner">
 <h4>Organization Domain: $TenantName</h4>
@@ -130,7 +130,7 @@ Connect-MgGraph -ClientId $EXOClientId -TenantId $TenantId -CertificateThumbprin
 # (Optioneel kun je het subject dynamisch maken, maar hier is het neutraal gehouden)
 $params = @{
     message = @{
-        subject = "$Customer | Drift Detection M365: $Workload"
+        subject = "$Customer | Drift Detection M365 for $Workload"
         body    = @{
             contentType = "HTML"
             content     = $htmlContent

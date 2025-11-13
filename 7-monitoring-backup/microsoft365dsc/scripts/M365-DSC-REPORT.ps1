@@ -9,10 +9,6 @@ param(
     [switch]$OpenReport
 )
 
-# $JsonPath = "$PathReport\$TenantName-DriftReport-M365-$Workload.json"
-# $OutputPath = "$PathReport\$TenantName-DriftReport-M365-$Workload.html"
-# $Title = "Microsoft 365 drift detection report from Rubicon Cloud Advisor"
-
 # ----------------- Validatie & setup -----------------
 
 if (-not (Test-Path -Path $JsonPath)) {
@@ -133,9 +129,24 @@ $rows = foreach ($item in $items) {
     $status    = Get-DriftStatus -Properties $item.Properties
     $propsHtml = Build-PropertiesHtml -Properties $item.Properties
 
+    # Get original values
+    $resourceName = [string]$item.ResourceName
+    $key          = [string]$item.Key
+    $keyValueRaw  = [string]$item.KeyValue
+    $resInst      = [string]$item.ResourceInstanceName
+
+    # If KeyValue is empty, use ResourceInstanceName instead
+    if ([string]::IsNullOrWhiteSpace($keyValueRaw) -and -not [string]::IsNullOrWhiteSpace($resInst)) {
+        $keyValueEffective = $resInst
+    } else {
+        $keyValueEffective = $keyValueRaw
+    }
+
     [PSCustomObject]@{
-        ResourceName         = [string]$item.ResourceName
-        ResourceInstanceName = [string]$item.ResourceInstanceName
+        ResourceName         = $resourceName
+        Key                  = $key
+        KeyValue             = $keyValueEffective
+        ResourceInstanceName = $resInst   # kept in data, not shown in table
         Status               = $status
         PropertiesHtml       = $propsHtml
     }
@@ -151,7 +162,9 @@ $generated = Get-Date
 
 $rowsHtml = foreach ($r in $rows) {
     $resName = [System.Web.HttpUtility]::HtmlEncode($r.ResourceName)
-    $resInst = [System.Web.HttpUtility]::HtmlEncode($r.ResourceInstanceName)
+    $key     = [System.Web.HttpUtility]::HtmlEncode($r.Key)
+    $keyVal  = [System.Web.HttpUtility]::HtmlEncode($r.KeyValue)
+    # $resInst is intentionally not rendered
     $status  = [System.Web.HttpUtility]::HtmlEncode($r.Status)
 
     $icon = switch ($r.Status) {
@@ -164,7 +177,8 @@ $rowsHtml = foreach ($r in $rows) {
 @"
 <tr>
     <td>$resName</td>
-    <td>$resInst</td>
+    <td>$key</td>
+    <td>$keyVal</td>
     <td><span class='status-badge status-$($r.Status.ToLower())'>$icon $status</span></td>
     <td>$($r.PropertiesHtml)</td>
 </tr>
@@ -300,10 +314,12 @@ $html = @"
             border-bottom: 1px solid #111827;
         }
 
+        /* 5 kolommen: ResourceName, Key, KeyValue, Status, Properties */
         td:nth-child(1) { width: 15%; }
-        td:nth-child(2) { width: 25%; }
-        td:nth-child(3) { width: 10%; }
-        td:nth-child(4) { width: 50%; }
+        td:nth-child(2) { width: 15%; }
+        td:nth-child(3) { width: 25%; }
+        td:nth-child(4) { width: 10%; }
+        td:nth-child(5) { width: 35%; }
 
         .status-badge {
             display: inline-flex;
@@ -410,7 +426,8 @@ $html = @"
             <thead>
                 <tr>
                     <th>ResourceName</th>
-                    <th>ResourceInstanceName</th>
+                    <th>Key</th>
+                    <th>KeyValue</th>
                     <th>Status</th>
                     <th>Properties (ParameterName / ValueInSource / ValueInDestination)</th>
                 </tr>
@@ -486,37 +503,5 @@ if ($OpenReport) {
     Start-Process $OutputPath
 }
 
-
-# SharePoint Upload
-# Connect to your SharePoint site
-Connect-PnPOnline "https://contoso.sharepoint.com/sites/$customer" -ClientId $ApplicationID -Thumbprint $CertificateThumbprint -Tenant $TenantID
-
-# Define the folder containing HTML files for category extraction and upload
-$HtmlFolder = "C:\Users\Public\Downloads"
-
-# Get all HTML files in the folder
-$htmlFiles = Get-ChildItem -Path $HtmlFolder -Filter "*.html"
-
-# Retrieve all terms from the "PageCategory" term set
-$termSetName = "PageCategory"
-$termGroupName = "Siteverzameling - cbgmeb.sharepoint.com-sites-InformationPortalTest"
-$terms = Get-PnPTerm -TermSet $termSetName -TermGroup $termGroupName
-
-# Loop through each HTML file
-foreach ($file in $htmlFiles) {
-    # Get the page name from the file name
-    $pageName = [System.IO.Path]::GetFileNameWithoutExtension($file.Name)
-
-    # Read the content of the HTML file
-    $htmlContent = Get-Content -Path $file.FullName -Raw
-
-    # Create a modern page in SharePoint
-    Add-PnPPage -Name $pageName -LayoutType Article -Title $pageTitle
-
-    # Add the HTML content to the page
-    Add-PnPPageTextPart -Page $pageName -Text $normalizedHtmlContent
-	
-    Write-Host "Processed and uploaded page: $pageName with metadata categories set to $categoryIds"
-}
-
-Write-Host "All HTML files have been processed and uploaded to SharePoint."
+# (Optional) SharePoint upload – keep your original here if needed
+# Connect-PnPOnline ...
