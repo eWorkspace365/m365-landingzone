@@ -47,10 +47,6 @@ $Permissions = @{
                     type = "Role"
                 },
                 @{
-                    id = "a82116e5-55eb-4c41-a434-62fe8a61c773"  # Sites.FullControl.All (Graph)
-                    type = "Role"
-                },
-                @{
                     id = "0c0bf378-bf22-4481-8f81-9e89a9b4960a"  # Sites.Manage.All
                     type = "Role"
                 },
@@ -58,10 +54,6 @@ $Permissions = @{
                     id = "19b94e34-907c-4f43-bde9-38b1909ed408"  # SharePointTenantSettings.ReadWrite.All
                     type = "Role"
                 }
-                 @{
-                    id = "498476ce-e0fe-48b0-b801-37ba7e2685c6"  # Organization.Read.All
-                    type = "Role"
-                },
                 @{
                     id = "a82116e5-55eb-4c41-a434-62fe8a61c773"  # Sites.FullControl.All
                     type = "Role"
