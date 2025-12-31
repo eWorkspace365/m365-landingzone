@@ -4,7 +4,7 @@ param(
 
     [string]$OutputPath,
 
-    [string]$Title = "Microsoft 365 drift report from Rubicon Cloud Advisor",
+    [string]$Title = "Microsoft 365 drift report",
 
     [switch]$OpenReport
 )

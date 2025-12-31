@@ -16,7 +16,7 @@ $choice = Read-Host "Enter 'new' to create a new application or 'update' to upda
 
 if ($choice -eq 'new') {
     # Create AAD Application
-    $AppName =  "Rubicon-M365-DSC-Compliance"
+    $AppName =  "EWS-M365-DSC-Compliance"
     $App = New-MgApplication -DisplayName $AppName 
     $APPObjectID = $App.Id
     Write-Host "Created new application with ID: $APPObjectID"

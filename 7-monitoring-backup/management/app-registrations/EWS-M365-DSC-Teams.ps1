@@ -16,7 +16,7 @@ $choice = Read-Host "Enter 'new' to create a new application or 'update' to upda
 
 if ($choice -eq 'new') {
     # Create AAD Application
-    $AppName =  "Rubicon-M365-DSC-SharePoint"
+    $AppName =  "EWS-M365-DSC-Teams"
     $App = New-MgApplication -DisplayName $AppName 
     $APPObjectID = $App.Id
     Write-Host "Created new application with ID: $APPObjectID"
@@ -38,46 +38,44 @@ $Permissions = @{
         @{
             ResourceAppId = "00000003-0000-0000-c000-000000000000"
             ResourceAccess = @(
-                @{
+		@{
+                    id = "df021288-bdef-4463-88db-98f22de89214"  # User.Read.All
+                    type = "Role"
+                },
+		@{
                     id = "7ab1d382-f21e-4acd-a863-ba3e13f7da61"  # Directory.ReadWrite.All
+                    type = "Role"
+                },
+                @{
+                    id = "62a82d76-70ea-41e2-9197-370581804d09"  # Group.ReadWrite.All
+                    type = "Role"
+                },
+                @{
+                    id = "246dd0d5-5bd0-4def-940b-0421030a5b68"  # Policy.Read.All
                     type = "Role"
                 },
                 @{
                     id = "498476ce-e0fe-48b0-b801-37ba7e2685c6"  # Organization.Read.All
                     type = "Role"
                 },
-                @{
-                    id = "0c0bf378-bf22-4481-8f81-9e89a9b4960a"  # Sites.Manage.All
+		@{
+                    id = "dc149144-f292-421e-b185-5953f2e98d7f"  # AppCatalog.ReadWrite.All
+                    type = "Role"
+                },
+		@{
+                    id = "6a118a39-1227-45d4-af0c-ea7b40d210bc"  # Channel.Delete.All
+                    type = "Role"
+                },
+		@{
+                    id = "243cded2-bd16-4fd6-a953-ff8177894c3d"  # ChannelSettings.ReadWrite.All
+                    type = "Role"
+                },
+		@{
+                    id = "35930dcf-aceb-4bd1-b99a-8ffed403c974"  # ChannelMember.ReadWrite.All
                     type = "Role"
                 },
                 @{
-                    id = "19b94e34-907c-4f43-bde9-38b1909ed408"  # SharePointTenantSettings.ReadWrite.All
-                    type = "Role"
-                }
-                @{
-                    id = "a82116e5-55eb-4c41-a434-62fe8a61c773"  # Sites.FullControl.All
-                    type = "Role"
-                },
-                @{
-                    id = "9492366f-7969-46a4-8d15-ed1a20078fff"  # Sites.ReadWrite.All
-                    type = "Role"
-                }
-            )
-        },
-        @{
-            resourceAppId = "00000002-0000-0ff1-ce00-000000000000"  # Office 365 Exchange Online
-            resourceAccess = @(
-                @{
-                    id = "dc50a0fb-09a3-484d-be87-e023b12c6440"  # Exchange.ManageAsApp
-                    type = "Role"
-                }
-            )
-        },
-        @{
-            resourceAppId = "00000003-0000-0ff1-ce00-000000000000"  # SharePoint
-            resourceAccess = @(
-                @{
-                    id = "678536fe-1083-478a-9c59-b99265e6b0d3"  # Sites.FullControl.All (SharePoint API)
+                    id = "bdd80a03-d9bc-451d-b7c4-ce7c63fe3c8f"  # TeamSettings.ReadWrite.All
                     type = "Role"
                 }
             )
