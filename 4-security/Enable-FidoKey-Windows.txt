@@ -1,6 +1,0 @@
-c. Enter a Name (Enable FIDO2 security keys (optional)), Description (Enables FIDO2 security keys as a sign-in method for Windows 10), click Next  
-d. Under the Configuration settings, configure the following: 
-	1. Name: Turn on FIDO Security Keys for Windows Sign-In
-	2. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
-	3. Data type: Integer
-	4. Value: 1
