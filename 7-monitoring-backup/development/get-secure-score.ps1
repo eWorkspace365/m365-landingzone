@@ -29,8 +29,8 @@
 #>
 
 param(
-    [Parameter(Mandatory = $true)] [string]$ClientId,
     [Parameter(Mandatory = $true)] [string]$TenantId,
+    [Parameter(Mandatory = $true)] [string]$ClientId,
     [Parameter(Mandatory = $true)] [string]$CertificateThumbprint,
     [Parameter(Mandatory = $false)] [string]$OutputPath = ".\secureScore-recommendations.json",
     [switch]$UseBeta
