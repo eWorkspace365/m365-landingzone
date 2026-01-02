@@ -62,7 +62,7 @@ param(
     [string[]]$ExcludeUrlLike = @('-my.sharepoint.com'),
 
     # Path to the single-site backup script
-    [string]$BackupScriptPath = $(Join-Path -Path $PSScriptRoot -ChildPath 'backup-sharepoint-site.ps1')
+    [string]$BackupScriptPath = $(Join-Path -Path $PSScriptRoot -ChildPath 'spo-site-backup.ps1')
 )
 
 Set-StrictMode -Version Latest
@@ -123,7 +123,7 @@ if (-not (Get-Module -ListAvailable -Name PnP.PowerShell)) {
 }
 
 if (-not (Test-Path -LiteralPath $BackupScriptPath)) {
-    throw "Per-site backup script not found at '$BackupScriptPath'. Place 'backup-sharepoint-site.ps1' beside this script or pass -BackupScriptPath."
+    throw "Per-site backup script not found at '$BackupScriptPath'. Place 'spo-site-backup.ps1' beside this script or pass -BackupScriptPath."
 }
 
 # Ensure root folders exist
