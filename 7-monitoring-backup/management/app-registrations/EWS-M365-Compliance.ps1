@@ -16,7 +16,7 @@ $choice = Read-Host "Enter 'new' to create a new application or 'update' to upda
 
 if ($choice -eq 'new') {
     # Create AAD Application
-    $AppName =  "EWS-M365-DSC-SharePoint"
+    $AppName =  "EWS-M365-Compliance"
     $App = New-MgApplication -DisplayName $AppName 
     $APPObjectID = $App.Id
     Write-Host "Created new application with ID: $APPObjectID"
@@ -38,28 +38,32 @@ $Permissions = @{
         @{
             ResourceAppId = "00000003-0000-0000-c000-000000000000"
             ResourceAccess = @(
+		@{
+                    id = "9241abd9-d0e6-425a-bd4f-47ba86e767a4"  # DeviceManagementConfiguration.ReadWrite.All
+                    type = "Role"
+                },
+		@{
+                    id = "7ab1d382-f21e-4acd-a863-ba3e13f7da61"  # Directory.Read.All
+                    type = "Role"
+                },
                 @{
-                    id = "7ab1d382-f21e-4acd-a863-ba3e13f7da61"  # Directory.ReadWrite.All
+                    id = "b2620db1-3bf7-4c5b-9cb9-576d29eac736"  # eDiscovery.ReadWrite.All
+                    type = "Role"
+                },
+                @{
+                    id = "19da66cb-0fb0-4390-b071-ebc76a349482"  # InformationProtectionPolicy.Read.All
                     type = "Role"
                 },
                 @{
                     id = "498476ce-e0fe-48b0-b801-37ba7e2685c6"  # Organization.Read.All
                     type = "Role"
                 },
-                @{
-                    id = "0c0bf378-bf22-4481-8f81-9e89a9b4960a"  # Sites.Manage.All
+		@{
+                    id = "01c0a623-fc9b-48e9-b794-0756f8e8f067"  # Policy.ReadWrite.ConditionalAccess
                     type = "Role"
                 },
-                @{
-                    id = "19b94e34-907c-4f43-bde9-38b1909ed408"  # SharePointTenantSettings.ReadWrite.All
-                    type = "Role"
-                }
-                @{
-                    id = "a82116e5-55eb-4c41-a434-62fe8a61c773"  # Sites.FullControl.All
-                    type = "Role"
-                },
-                @{
-                    id = "9492366f-7969-46a4-8d15-ed1a20078fff"  # Sites.ReadWrite.All
+		@{
+                    id = "d903a879-88e0-4c09-b0c9-82f6a1333f84"  # SecurityEvents.ReadWrite.All
                     type = "Role"
                 }
             )
@@ -69,15 +73,6 @@ $Permissions = @{
             resourceAccess = @(
                 @{
                     id = "dc50a0fb-09a3-484d-be87-e023b12c6440"  # Exchange.ManageAsApp
-                    type = "Role"
-                }
-            )
-        },
-        @{
-            resourceAppId = "00000003-0000-0ff1-ce00-000000000000"  # SharePoint
-            resourceAccess = @(
-                @{
-                    id = "678536fe-1083-478a-9c59-b99265e6b0d3"  # Sites.FullControl.All (SharePoint API)
                     type = "Role"
                 }
             )

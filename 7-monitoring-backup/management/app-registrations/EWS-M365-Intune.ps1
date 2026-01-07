@@ -16,7 +16,7 @@ $choice = Read-Host "Enter 'new' to create a new application or 'update' to upda
 
 if ($choice -eq 'new') {
     # Create AAD Application
-    $AppName =  "EWS-M365-DSC-Teams"
+    $AppName =  "EWS-M365-Intune"
     $App = New-MgApplication -DisplayName $AppName 
     $APPObjectID = $App.Id
     Write-Host "Created new application with ID: $APPObjectID"
@@ -38,44 +38,36 @@ $Permissions = @{
         @{
             ResourceAppId = "00000003-0000-0000-c000-000000000000"
             ResourceAccess = @(
-		@{
-                    id = "df021288-bdef-4463-88db-98f22de89214"  # User.Read.All
+                @{
+                    id = "78145de6-330d-4800-a6ce-494ff2d33d07"  # DeviceManagementApps.ReadWrite.All
                     type = "Role"
                 },
-		@{
-                    id = "7ab1d382-f21e-4acd-a863-ba3e13f7da61"  # Directory.ReadWrite.All
+				@{
+                    id = "9255e99d-faf5-445e-bbf7-cb71482737c4"  # DeviceManagementScripts.ReadWrite.All
                     type = "Role"
                 },
                 @{
-                    id = "62a82d76-70ea-41e2-9197-370581804d09"  # Group.ReadWrite.All
+                    id = "58ca0d9a-1575-47e1-a3cb-007ef2e4583b"  # Read Microsoft Intune RBAC settings
                     type = "Role"
                 },
                 @{
-                    id = "246dd0d5-5bd0-4def-940b-0421030a5b68"  # Policy.Read.All
+                    id = "9241abd9-d0e6-425a-bd4f-47ba86e767a4"  # DeviceManagementConfiguration.ReadWrite.All
+                    type = "Role"
+                },
+                @{
+                    id = "243333ab-4d21-40cb-a475-36241daa0842"  # DeviceManagementManagedDevices.ReadWrite.All
+                    type = "Role"
+                },
+                @{
+                    id = "5ac13192-7ace-4fcf-b828-1a26f28068ee"  # DeviceManagementServiceConfig.ReadWrite.All
+                    type = "Role"
+                },
+                @{
+                    id = "7ab1d382-f21e-4acd-a863-ba3e13f7da61"  # Directory.Read.All
                     type = "Role"
                 },
                 @{
                     id = "498476ce-e0fe-48b0-b801-37ba7e2685c6"  # Organization.Read.All
-                    type = "Role"
-                },
-		@{
-                    id = "dc149144-f292-421e-b185-5953f2e98d7f"  # AppCatalog.ReadWrite.All
-                    type = "Role"
-                },
-		@{
-                    id = "6a118a39-1227-45d4-af0c-ea7b40d210bc"  # Channel.Delete.All
-                    type = "Role"
-                },
-		@{
-                    id = "243cded2-bd16-4fd6-a953-ff8177894c3d"  # ChannelSettings.ReadWrite.All
-                    type = "Role"
-                },
-		@{
-                    id = "35930dcf-aceb-4bd1-b99a-8ffed403c974"  # ChannelMember.ReadWrite.All
-                    type = "Role"
-                },
-                @{
-                    id = "bdd80a03-d9bc-451d-b7c4-ce7c63fe3c8f"  # TeamSettings.ReadWrite.All
                     type = "Role"
                 }
             )

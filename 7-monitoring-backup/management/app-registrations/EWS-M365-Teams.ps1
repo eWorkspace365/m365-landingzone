@@ -16,7 +16,7 @@ $choice = Read-Host "Enter 'new' to create a new application or 'update' to upda
 
 if ($choice -eq 'new') {
     # Create AAD Application
-    $AppName =  "EWS-M365-DSC-Exchange"
+    $AppName =  "EWS-M365-Teams"
     $App = New-MgApplication -DisplayName $AppName 
     $APPObjectID = $App.Id
     Write-Host "Created new application with ID: $APPObjectID"
@@ -38,29 +38,44 @@ $Permissions = @{
         @{
             ResourceAppId = "00000003-0000-0000-c000-000000000000"
             ResourceAccess = @(
-                @{
-                    id = "7ab1d382-f21e-4acd-a863-ba3e13f7da61"  # Directory.Read.All
-                    type = "Role"
-                },
-                @{
-                    id = "810c84a8-4a9e-49e6-bf7d-12d183f40d01"  # Mail.Read
+		@{
+                    id = "df021288-bdef-4463-88db-98f22de89214"  # User.Read.All
                     type = "Role"
                 },
 		@{
-                    id = "b633e1c5-b582-4048-a93e-9f11b44c7e96"  # Mail.Send
+                    id = "7ab1d382-f21e-4acd-a863-ba3e13f7da61"  # Directory.ReadWrite.All
                     type = "Role"
                 },
                 @{
-                    id = "9e3f62cf-ca93-4989-b6ce-bf83c28f9fe8"  # RoleManagement.ReadWrite.Directory
+                    id = "62a82d76-70ea-41e2-9197-370581804d09"  # Group.ReadWrite.All
                     type = "Role"
-                }
-            )
-        },
-        @{
-            resourceAppId = "00000002-0000-0ff1-ce00-000000000000"  # Office 365 Exchange Online
-            resourceAccess = @(
+                },
                 @{
-                    id = "dc50a0fb-09a3-484d-be87-e023b12c6440"  # Exchange.ManageAsApp
+                    id = "246dd0d5-5bd0-4def-940b-0421030a5b68"  # Policy.Read.All
+                    type = "Role"
+                },
+                @{
+                    id = "498476ce-e0fe-48b0-b801-37ba7e2685c6"  # Organization.Read.All
+                    type = "Role"
+                },
+		@{
+                    id = "dc149144-f292-421e-b185-5953f2e98d7f"  # AppCatalog.ReadWrite.All
+                    type = "Role"
+                },
+		@{
+                    id = "6a118a39-1227-45d4-af0c-ea7b40d210bc"  # Channel.Delete.All
+                    type = "Role"
+                },
+		@{
+                    id = "243cded2-bd16-4fd6-a953-ff8177894c3d"  # ChannelSettings.ReadWrite.All
+                    type = "Role"
+                },
+		@{
+                    id = "35930dcf-aceb-4bd1-b99a-8ffed403c974"  # ChannelMember.ReadWrite.All
+                    type = "Role"
+                },
+                @{
+                    id = "bdd80a03-d9bc-451d-b7c4-ce7c63fe3c8f"  # TeamSettings.ReadWrite.All
                     type = "Role"
                 }
             )
